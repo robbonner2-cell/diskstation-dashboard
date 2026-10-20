@@ -118,8 +118,8 @@
   footer { margin-top:16px; color:var(--muted-foreground, #8b949e); font-size:11px; }
 </style></head><body>
   <h1>NAS fleet &mdash; storage health dashboard</h1>
-  <div class="sub">Sanitized read-only API snapshot &middot; 2026-10-20 10:20 &middot;
-    schema <code>ds-public/1</code> &middot; 19.9s collection</div>
+  <div class="sub">Sanitized read-only API snapshot &middot; 2026-10-20 11:00 &middot;
+    schema <code>ds-public/1</code> &middot; 34.5s collection</div>
 
   <div class="kpis">
     <div class="kpi"><span class="k-l">Boxes online</span><span class="k-v">4 / 4</span></div>
@@ -145,29 +145,29 @@
           <div class="task-head">
             <span class="badge scrub">DATA SCRUB</span>
             <span class="task-box">ds1 &middot; volume_2</span>
-            <span class="task-pct">17.02%</span>
+            <span class="task-pct">17.13%</span>
           </div>
-          <div class="bar"><div class="bar-fill" style="width:17.02%;background:#bc8cff"></div></div>
+          <div class="bar"><div class="bar-fill" style="width:17.13%;background:#bc8cff"></div></div>
           <div class="task-foot">
-            <span class="spark-wrap"><svg class="spark" width="118" height="26" viewBox="0 0 118 26"><polyline points="0.0,24.0 7.9,4.6 15.7,4.6 23.6,4.6 31.5,4.5 39.3,4.4 47.2,4.4 55.1,3.8 62.9,3.8 70.8,3.5 78.7,3.3 86.5,3.0 94.4,2.8 102.3,2.5 110.1,2.2 118.0,2.0" fill="none" stroke="#bc8cff" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" opacity=".85"/><circle cx="0.0" cy="24.0" r="2.4" fill="var(--card, #161b22)" stroke="#bc8cff" stroke-width="1.4"/><title>live API reading from an earlier session (2026-10-19 04:33) - no standalone json artifact</title><circle cx="7.9" cy="4.6" r="1.9" fill="#bc8cff"/><circle cx="15.7" cy="4.6" r="1.9" fill="#bc8cff"/><circle cx="23.6" cy="4.6" r="1.9" fill="#bc8cff"/><circle cx="31.5" cy="4.5" r="1.9" fill="#bc8cff"/><circle cx="39.3" cy="4.4" r="1.9" fill="#bc8cff"/><circle cx="47.2" cy="4.4" r="1.9" fill="#bc8cff"/><circle cx="55.1" cy="3.8" r="1.9" fill="#bc8cff"/><circle cx="62.9" cy="3.8" r="1.9" fill="#bc8cff"/><circle cx="70.8" cy="3.5" r="1.9" fill="#bc8cff"/><circle cx="78.7" cy="3.3" r="1.9" fill="#bc8cff"/><circle cx="86.5" cy="3.0" r="1.9" fill="#bc8cff"/><circle cx="94.4" cy="2.8" r="1.9" fill="#bc8cff"/><circle cx="102.3" cy="2.5" r="1.9" fill="#bc8cff"/><circle cx="110.1" cy="2.2" r="1.9" fill="#bc8cff"/><circle cx="118.0" cy="2.0" r="1.9" fill="#bc8cff"/></svg></span>
-            <span class="eta-wrap"><span class="eta">581h left</span><span class="rate">0.14 pts/h &middot; live rate</span></span>
+            <span class="spark-wrap"><svg class="spark" width="118" height="26" viewBox="0 0 118 26"><polyline points="0.0,24.0 7.4,5.1 14.8,5.0 22.1,5.0 29.5,5.0 36.9,4.9 44.2,4.9 51.6,4.3 59.0,4.3 66.4,4.0 73.8,3.8 81.1,3.5 88.5,3.3 95.9,3.0 103.2,2.8 110.6,2.5 118.0,2.0" fill="none" stroke="#bc8cff" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" opacity=".85"/><circle cx="0.0" cy="24.0" r="2.4" fill="var(--card, #161b22)" stroke="#bc8cff" stroke-width="1.4"/><title>live API reading from an earlier session (2026-10-19 04:33) - no standalone json artifact</title><circle cx="7.4" cy="5.1" r="1.9" fill="#bc8cff"/><circle cx="14.8" cy="5.0" r="1.9" fill="#bc8cff"/><circle cx="22.1" cy="5.0" r="1.9" fill="#bc8cff"/><circle cx="29.5" cy="5.0" r="1.9" fill="#bc8cff"/><circle cx="36.9" cy="4.9" r="1.9" fill="#bc8cff"/><circle cx="44.2" cy="4.9" r="1.9" fill="#bc8cff"/><circle cx="51.6" cy="4.3" r="1.9" fill="#bc8cff"/><circle cx="59.0" cy="4.3" r="1.9" fill="#bc8cff"/><circle cx="66.4" cy="4.0" r="1.9" fill="#bc8cff"/><circle cx="73.8" cy="3.8" r="1.9" fill="#bc8cff"/><circle cx="81.1" cy="3.5" r="1.9" fill="#bc8cff"/><circle cx="88.5" cy="3.3" r="1.9" fill="#bc8cff"/><circle cx="95.9" cy="3.0" r="1.9" fill="#bc8cff"/><circle cx="103.2" cy="2.8" r="1.9" fill="#bc8cff"/><circle cx="110.6" cy="2.5" r="1.9" fill="#bc8cff"/><circle cx="118.0" cy="2.0" r="1.9" fill="#bc8cff"/></svg></span>
+            <span class="eta-wrap"><span class="eta">502h left</span><span class="rate">0.16 pts/h &middot; live rate</span></span>
           </div>
-          <div class="okline">rate stable &mdash; live 0.14 pts/h matches the 30h average</div><div class="noteline">baseline 2026-10-19 04:33 is a live API reading taken in an earlier session &mdash; a real measurement, but from a different run, so the long-window average spans sessions</div>
-          <div class="task-foot2">15 readings &middot; as of 2026-10-20 10:20 &middot; 2026-10-20 06:43 &rarr; 2026-10-20 10:20</div>
+          <div class="okline">rate stable &mdash; live 0.16 pts/h matches the 30h average</div><div class="noteline">baseline 2026-10-19 04:33 is a live API reading taken in an earlier session &mdash; a real measurement, but from a different run, so the long-window average spans sessions</div>
+          <div class="task-foot2">16 readings &middot; as of 2026-10-20 11:00 &middot; 2026-10-20 06:43 &rarr; 2026-10-20 11:00</div>
         </div>
         <div class="task scrub">
           <div class="task-head">
             <span class="badge scrub">DATA SCRUB</span>
             <span class="task-box">ds4 &middot; volume_2</span>
-            <span class="task-pct">55.76%</span>
+            <span class="task-pct">55.89%</span>
           </div>
-          <div class="bar"><div class="bar-fill" style="width:55.76%;background:#bc8cff"></div></div>
+          <div class="bar"><div class="bar-fill" style="width:55.89%;background:#bc8cff"></div></div>
           <div class="task-foot">
-            <span class="spark-wrap"><svg class="spark" width="118" height="26" viewBox="0 0 118 26"><polyline points="0.0,24.0 7.9,2.3 15.7,2.3 23.6,2.3 31.5,2.3 39.3,2.3 47.2,2.3 55.1,2.2 62.9,2.2 70.8,2.2 78.7,2.2 86.5,2.1 94.4,2.1 102.3,2.1 110.1,2.0 118.0,2.0" fill="none" stroke="#bc8cff" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" opacity=".85"/><circle cx="0.0" cy="24.0" r="2.4" fill="var(--card, #161b22)" stroke="#bc8cff" stroke-width="1.4"/><title>live API reading from an earlier session (2026-10-19 04:33) - no standalone json artifact</title><circle cx="7.9" cy="2.3" r="1.9" fill="#bc8cff"/><circle cx="15.7" cy="2.3" r="1.9" fill="#bc8cff"/><circle cx="23.6" cy="2.3" r="1.9" fill="#bc8cff"/><circle cx="31.5" cy="2.3" r="1.9" fill="#bc8cff"/><circle cx="39.3" cy="2.3" r="1.9" fill="#bc8cff"/><circle cx="47.2" cy="2.3" r="1.9" fill="#bc8cff"/><circle cx="55.1" cy="2.2" r="1.9" fill="#bc8cff"/><circle cx="62.9" cy="2.2" r="1.9" fill="#bc8cff"/><circle cx="70.8" cy="2.2" r="1.9" fill="#bc8cff"/><circle cx="78.7" cy="2.2" r="1.9" fill="#bc8cff"/><circle cx="86.5" cy="2.1" r="1.9" fill="#bc8cff"/><circle cx="94.4" cy="2.1" r="1.9" fill="#bc8cff"/><circle cx="102.3" cy="2.1" r="1.9" fill="#bc8cff"/><circle cx="110.1" cy="2.0" r="1.9" fill="#bc8cff"/><circle cx="118.0" cy="2.0" r="1.9" fill="#bc8cff"/></svg></span>
-            <span class="eta-wrap"><span class="eta">238h left</span><span class="rate">0.19 pts/h &middot; live rate</span></span>
+            <span class="spark-wrap"><svg class="spark" width="118" height="26" viewBox="0 0 118 26"><polyline points="0.0,24.0 7.4,2.4 14.8,2.4 22.1,2.4 29.5,2.4 36.9,2.4 44.2,2.4 51.6,2.3 59.0,2.3 66.4,2.3 73.8,2.2 81.1,2.2 88.5,2.2 95.9,2.1 103.2,2.1 110.6,2.1 118.0,2.0" fill="none" stroke="#bc8cff" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" opacity=".85"/><circle cx="0.0" cy="24.0" r="2.4" fill="var(--card, #161b22)" stroke="#bc8cff" stroke-width="1.4"/><title>live API reading from an earlier session (2026-10-19 04:33) - no standalone json artifact</title><circle cx="7.4" cy="2.4" r="1.9" fill="#bc8cff"/><circle cx="14.8" cy="2.4" r="1.9" fill="#bc8cff"/><circle cx="22.1" cy="2.4" r="1.9" fill="#bc8cff"/><circle cx="29.5" cy="2.4" r="1.9" fill="#bc8cff"/><circle cx="36.9" cy="2.4" r="1.9" fill="#bc8cff"/><circle cx="44.2" cy="2.4" r="1.9" fill="#bc8cff"/><circle cx="51.6" cy="2.3" r="1.9" fill="#bc8cff"/><circle cx="59.0" cy="2.3" r="1.9" fill="#bc8cff"/><circle cx="66.4" cy="2.3" r="1.9" fill="#bc8cff"/><circle cx="73.8" cy="2.2" r="1.9" fill="#bc8cff"/><circle cx="81.1" cy="2.2" r="1.9" fill="#bc8cff"/><circle cx="88.5" cy="2.2" r="1.9" fill="#bc8cff"/><circle cx="95.9" cy="2.1" r="1.9" fill="#bc8cff"/><circle cx="103.2" cy="2.1" r="1.9" fill="#bc8cff"/><circle cx="110.6" cy="2.1" r="1.9" fill="#bc8cff"/><circle cx="118.0" cy="2.0" r="1.9" fill="#bc8cff"/></svg></span>
+            <span class="eta-wrap"><span class="eta">226h left</span><span class="rate">0.20 pts/h &middot; live rate</span></span>
           </div>
-          <div class="warnline">rate unstable &mdash; live 0.19 pts/h vs 30h avg 1.52 pts/h; ETA uses the live rate</div><div class="noteline">baseline 2026-10-19 04:33 is a live API reading taken in an earlier session &mdash; a real measurement, but from a different run, so the long-window average spans sessions</div>
-          <div class="task-foot2">15 readings &middot; as of 2026-10-20 10:20 &middot; 2026-10-20 06:43 &rarr; 2026-10-20 10:20</div>
+          <div class="warnline">rate unstable &mdash; live 0.20 pts/h vs 30h avg 1.50 pts/h; ETA uses the live rate</div><div class="noteline">baseline 2026-10-19 04:33 is a live API reading taken in an earlier session &mdash; a real measurement, but from a different run, so the long-window average spans sessions</div>
+          <div class="task-foot2">16 readings &middot; as of 2026-10-20 11:00 &middot; 2026-10-20 06:43 &rarr; 2026-10-20 11:00</div>
         </div></div>
   </div>
 
@@ -178,7 +178,7 @@
           <h2>ds1</h2>
           <div class="bc-meta">
             <span>DS2413+</span>
-            <span>up 69:48:35</span>
+            <span>up 70:28:36</span>
             <span class="t-ok">34&deg;C</span>
           </div>
         </div>
@@ -215,7 +215,7 @@
             <span>scrub: kernel_running</span>
             
           </div>
-          <div class="vprog"><span class="mini-label">DATA SCRUB</span><div class="bar"><div class="bar-fill" style="width:17.02%;background:#bc8cff"></div></div><span class="mini-pct">17.02%</span></div><div class="vrate">live 0.14 pts/h &middot; ETA ~581h</div>
+          <div class="vprog"><span class="mini-label">DATA SCRUB</span><div class="bar"><div class="bar-fill" style="width:17.13%;background:#bc8cff"></div></div><span class="mini-pct">17.13%</span></div><div class="vrate">live 0.16 pts/h &middot; ETA ~502h</div>
         </div>
           <h3>Storage pools &mdash; members</h3>
           
@@ -245,7 +245,7 @@
           <h3>Disks needing attention <span class="mut">(24 total)</span></h3>
           <div class="mut small">none &mdash; all members normal</div>
           <h3>Findings</h3>
-          <ul class="findings medium"><li>volume_2 data scrub at 17.02</li></ul>
+          <ul class="findings medium"><li>volume_2 data scrub at 17.13</li></ul>
         </div>
       </div>
     </section>
@@ -255,7 +255,7 @@
           <h2>ds2</h2>
           <div class="bc-meta">
             <span>DS2411+</span>
-            <span>up 69:49:5</span>
+            <span>up 70:29:6</span>
             <span class="t-ok">37&deg;C</span>
           </div>
         </div>
@@ -330,7 +330,7 @@
           <h2>ds3</h2>
           <div class="bc-meta">
             <span>DS2413+</span>
-            <span>up 117:53:26</span>
+            <span>up 118:33:26</span>
             <span class="t-ok">39&deg;C</span>
           </div>
         </div>
@@ -414,7 +414,7 @@
           <h2>ds4</h2>
           <div class="bc-meta">
             <span>DS2413+</span>
-            <span>up 69:48:53</span>
+            <span>up 70:28:53</span>
             <span class="t-warn">41&deg;C</span>
           </div>
         </div>
@@ -451,7 +451,7 @@
             <span>scrub: kernel_running</span>
             
           </div>
-          <div class="vprog"><span class="mini-label">DATA SCRUB</span><div class="bar"><div class="bar-fill" style="width:55.76%;background:#bc8cff"></div></div><span class="mini-pct">55.76%</span></div><div class="vrate">live 0.19 pts/h &middot; ETA ~238h (unstable)</div>
+          <div class="vprog"><span class="mini-label">DATA SCRUB</span><div class="bar"><div class="bar-fill" style="width:55.89%;background:#bc8cff"></div></div><span class="mini-pct">55.89%</span></div><div class="vrate">live 0.20 pts/h &middot; ETA ~226h (unstable)</div>
         </div>
           <h3>Storage pools &mdash; members</h3>
           
@@ -520,7 +520,7 @@
           <span class="dsmart">SMART normal</span>
         </div>
           <h3>Findings</h3>
-          <ul class="findings crit"><li>volume_1 is degrade (80% full)</li><li>/dev/md2 has 11/12 members (pool reuse_1)</li></ul><ul class="findings high"><li>volume_1 scrubbingStatus=abnormal</li></ul><ul class="findings medium"><li>volume_2 data scrub at 55.76</li><li>sda (slot 1) not_use, SMART normal, REDACTED</li></ul><ul class="findings low"><li>sdf flagged system_crashed</li><li>sdg flagged system_crashed</li><li>sdh flagged system_crashed</li><li>sdj flagged system_crashed</li></ul>
+          <ul class="findings crit"><li>volume_1 is degrade (80% full)</li><li>/dev/md2 has 11/12 members (pool reuse_1)</li></ul><ul class="findings high"><li>volume_1 scrubbingStatus=abnormal</li></ul><ul class="findings medium"><li>volume_2 data scrub at 55.89</li><li>sda (slot 1) not_use, SMART normal, REDACTED</li></ul><ul class="findings low"><li>sdf flagged system_crashed</li><li>sdg flagged system_crashed</li><li>sdh flagged system_crashed</li><li>sdj flagged system_crashed</li></ul>
         </div>
       </div>
     </section></div>
