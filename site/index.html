@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NAS fleet &mdash; storage health dashboard</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body { margin:0; padding:18px 20px 28px; background:var(--background, #0d1117); color:var(--foreground, #e6edf3);
+         font:13px/1.5 ui-sans-serif,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
+  h1 { font-size:19px; margin:0 0 2px; letter-spacing:.2px; }
+  h2 { font-size:15px; margin:0; font-weight:650; }
+  h3 { font-size:11px; margin:16px 0 7px; text-transform:uppercase; letter-spacing:.09em;
+        color:var(--muted-foreground, #8b949e); font-weight:650; }
+  .sub { color:var(--muted-foreground, #8b949e); font-size:12px; margin-bottom:14px; }
+  .mut { color:var(--muted-foreground, #8b949e); }
+  .small { font-size:11.5px; }
+  code { background:rgba(127,127,127,.16); padding:1px 5px; border-radius:4px; font-size:11.5px; }
+  .kpis { display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:9px; margin-bottom:16px; }
+  .kpi { background:var(--card, #161b22); border:1px solid var(--border, #30363d); border-radius:9px; padding:9px 12px; }
+  .k-l { display:block; color:var(--muted-foreground, #8b949e); font-size:10.5px; text-transform:uppercase; letter-spacing:.07em; }
+  .k-v { display:block; font-size:19px; font-weight:680; margin-top:2px; }
+  .k-s { display:block; color:var(--muted-foreground, #8b949e); font-size:10.5px; margin-top:1px; }
+  .k-v.ok { color:#3fb950; } .k-v.crit { color:#f85149; }
+  .panel { background:var(--card, #161b22); border:1px solid var(--border, #30363d); border-radius:10px; padding:13px 15px; margin-bottom:16px; }
+  .panel h3:first-child { margin-top:0; }
+  .tasks { display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:11px; }
+  .task { border:1px solid var(--border, #30363d); border-radius:9px; padding:10px 12px; background:rgba(127,127,127,.05); }
+  .task.rebuild { border-left:3px solid #58a6ff; }
+  .task.scrub { border-left:3px solid #bc8cff; }
+  .task-head { display:flex; align-items:center; gap:8px; margin-bottom:7px; }
+  .badge { font-size:10px; font-weight:700; letter-spacing:.07em; padding:2px 7px; border-radius:5px; color:#06121f; }
+  .badge.rebuild { background:#58a6ff; } .badge.scrub { background:#bc8cff; color:#14091f; }
+  .task-box { font-weight:620; }
+  .task-pct { margin-left:auto; font-variant-numeric:tabular-nums; font-weight:700; font-size:15px; }
+  .bar { height:8px; background:rgba(127,127,127,.18); border-radius:5px; overflow:hidden; }
+  .bar-fill { height:100%; border-radius:5px; transition:width .3s; }
+  .bar-fill.thin { height:5px; }
+  .task-foot { display:flex; align-items:center; gap:10px; margin-top:7px; min-height:26px; }
+  .task-foot2 { font-size:10.5px; color:var(--muted-foreground, #8b949e); margin-top:5px; }
+  .warnline { font-size:11px; color:#e3b341; margin-top:6px; line-height:1.35; }
+  .okline { font-size:11px; color:#3fb950; margin-top:6px; line-height:1.35; }
+  .noteline { font-size:10.5px; color:var(--muted-foreground, #8b949e); margin-top:5px; line-height:1.35; }
+  .vrate { font-size:10.5px; color:var(--muted-foreground, #8b949e); margin-top:4px; }
+  .vnone { font-size:10.5px; color:#e3b341; margin-left:8px; }
+  .eta-wrap { margin-left:auto; text-align:right; }
+  .eta { display:block; font-size:11.5px; font-weight:620; }
+  .rate { display:block; font-size:10.5px; color:var(--muted-foreground, #8b949e); }
+  .done { display:flex; gap:10px; align-items:flex-start; background:rgba(63,185,80,.09);
+           border:1px solid rgba(63,185,80,.35); border-radius:9px; padding:10px 13px; margin-bottom:16px; }
+  .done-txt { font-size:12.5px; }
+  .done .pill { margin-top:1px; }
+  .done-spark { margin-left:auto; display:flex; flex-direction:column; align-items:flex-end; }
+  .done-cap { font-size:10.5px; color:var(--muted-foreground, #8b949e); margin-top:2px; white-space:nowrap; }
+  .pill { font-size:10px; font-weight:700; letter-spacing:.06em; padding:2px 7px; border-radius:5px;
+           text-transform:uppercase; white-space:nowrap; }
+  .pill.ok { background:rgba(63,185,80,.18); color:#3fb950; }
+  .pill.warn { background:rgba(227,179,65,.18); color:#e3b341; }
+  .pill.crit { background:rgba(248,81,73,.18); color:#f85149; }
+  .pill.scrub { background:rgba(188,140,255,.18); color:#bc8cff; }
+  .pill.rebuild { background:rgba(88,166,255,.18); color:#58a6ff; }
+  .boxes { display:grid; grid-template-columns:repeat(auto-fit,minmax(430px,1fr)); gap:13px; }
+  .boxcard { background:var(--card, #161b22); border:1px solid var(--border, #30363d); border-radius:11px; padding:14px 16px; }
+  .boxcard.crit { border-color:rgba(248,81,73,.45); }
+  .bc-head { display:flex; align-items:flex-start; gap:12px; border-bottom:1px solid var(--border, #30363d); padding-bottom:10px; }
+  .bc-meta { display:flex; flex-wrap:wrap; gap:9px; color:var(--muted-foreground, #8b949e); font-size:11.5px; margin-top:4px; }
+  .bc-meta span { white-space:nowrap; }
+  .t-ok { color:#3fb950; } .t-warn { color:#e3b341; } .t-crit { color:#f85149; }
+  .state { margin-left:auto; font-size:11px; font-weight:750; letter-spacing:.08em; padding:4px 10px;
+            border-radius:6px; white-space:nowrap; }
+  .state.ok { background:rgba(63,185,80,.15); color:#3fb950; }
+  .state.warn { background:rgba(227,179,65,.15); color:#e3b341; }
+  .state.crit { background:rgba(248,81,73,.15); color:#f85149; }
+  .state.scrub { background:rgba(188,140,255,.15); color:#bc8cff; }
+  .state.rebuild { background:rgba(88,166,255,.15); color:#58a6ff; }
+  .bc-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  .vol { padding:7px 0; border-bottom:1px dashed rgba(127,127,127,.18); }
+  .vol-top { display:flex; align-items:center; gap:8px; margin-bottom:5px; }
+  .vname { font-weight:650; }
+  .vfill { margin-left:auto; color:var(--muted-foreground, #8b949e); font-size:11.5px; font-variant-numeric:tabular-nums; }
+  .vol-meta { display:flex; flex-wrap:wrap; gap:10px; color:var(--muted-foreground, #8b949e); font-size:11px; margin-top:4px; }
+  .vol-meta .fail { color:#f85149; font-weight:620; }
+  .vprog { display:flex; align-items:center; gap:7px; margin-top:6px; }
+  .mini-label { font-size:9.5px; font-weight:700; letter-spacing:.06em; color:var(--muted-foreground, #8b949e); white-space:nowrap; }
+  .mini-pct { font-size:11px; font-variant-numeric:tabular-nums; font-weight:650; white-space:nowrap; }
+  .vprog .bar { flex:1; }
+  .pool { padding:6px 0; }
+  .pool-top { display:flex; align-items:baseline; gap:8px; }
+  .praid { font-weight:600; font-size:12px; }
+  .pmem { margin-left:auto; font-weight:700; font-variant-numeric:tabular-nums; font-size:12px; }
+  .pmem.ok { color:#3fb950; } .pmem.crit { color:#f85149; }
+  .pips { display:flex; flex-wrap:wrap; gap:3px; margin-top:5px; }
+  .pip { width:13px; height:13px; border-radius:3px; display:inline-block; }
+  .pip.ok { background:rgba(63,185,80,.55); }
+  .pip.warn { background:rgba(227,179,65,.6); }
+  .pip.crit { background:rgba(248,81,73,.6); }
+  .pip.missing { background:transparent; border:1px dashed #f85149; }
+  .diskrow { display:flex; align-items:center; gap:8px; padding:4px 0; font-size:11.5px; }
+  .dname { font-weight:620; }
+  .dsmart { margin-left:auto; color:var(--muted-foreground, #8b949e); font-size:11px; }
+  .findings { margin:0; padding-left:15px; font-size:11.5px; }
+  .findings li { margin:3px 0; }
+  .findings.crit li { color:#f85149; }
+  .findings.high li { color:#e3b341; }
+  .findings.medium li { color:var(--foreground, #e6edf3); }
+  .findings.low li { color:var(--muted-foreground, #8b949e); }
+  .legend { display:flex; flex-wrap:wrap; gap:14px; margin-top:14px; color:var(--muted-foreground, #8b949e); font-size:11px; }
+  .legend span { display:flex; align-items:center; gap:5px; }
+  .sw { width:11px; height:11px; border-radius:3px; display:inline-block; }
+  .sw.rebuild { background:#58a6ff; } .sw.scrub { background:#bc8cff; }
+  .sw.ok { background:rgba(63,185,80,.55); } .sw.warn { background:rgba(227,179,65,.6); }
+  .sw.crit { background:rgba(248,81,73,.6); }
+  .dot { width:10px; height:10px; border-radius:50%; display:inline-block; }
+  .dot.filled { background:var(--accent, #58a6ff); }
+  .dot.hollow { background:transparent; border:1.5px solid var(--accent, #58a6ff); }
+  .dot.dashed { background:transparent; border:1.5px dashed var(--accent, #58a6ff); }
+  .legend + .legend { margin-top:6px; }
+  .spark { vertical-align:middle; }
+  footer { margin-top:16px; color:var(--muted-foreground, #8b949e); font-size:11px; }
+</style></head><body>
+  <h1>NAS fleet &mdash; storage health dashboard</h1>
+  <div class="sub">Sanitized read-only API snapshot &middot; 2026-10-20 07:02 &middot;
+    schema <code>ds-public/1</code> &middot; 10.7s collection</div>
+
+  <div class="kpis">
+    <div class="kpi"><span class="k-l">Boxes online</span><span class="k-v">4 / 4</span></div>
+    <div class="kpi"><span class="k-l">Raw capacity</span><span class="k-v">617 TB</span><span class="k-s">480 TB usable</span></div>
+    <div class="kpi"><span class="k-l">Disks</span><span class="k-v">95</span></div>
+    <div class="kpi"><span class="k-l">Rebuilding now</span><span class="k-v ok">0</span></div>
+    <div class="kpi"><span class="k-l">Background tasks</span><span class="k-v">2</span></div>
+    <div class="kpi"><span class="k-l">Degraded volumes</span><span class="k-v crit">2</span></div></div>
+
+  <div class="panel">
+    <h3>Rebuild &amp; scrub progress</h3>
+    
+    <div class="done">
+      <span class="pill ok">COMPLETED</span>
+      <span class="done-txt"><b>ds2 &middot; volume_2 &mdash; RAID rebuild finished.</b>
+      md3 is <b>12/12</b> members (<b>0</b> flagged rebuild, <b>0</b> non-normal)
+      and volume_2 is <code>normal</code>. Remaining ds2 fault is volume_1 / md2 at <b>10/12</b> (2 members gone);
+      volume_1 status is <code>degrade</code>.</span>
+      <span class="done-spark"><svg class="spark" width="210" height="34" viewBox="0 0 210 34"><polyline points="0.0,32.0 105.0,10.7 210.0,2.0" fill="none" stroke="#3fb950" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" opacity=".85"/><circle cx="0.0" cy="32.0" r="2.4" fill="var(--card, #161b22)" stroke="#3fb950" stroke-width="1.3" stroke-dasharray="2 1.4"/><title>prose figure - unverified</title><circle cx="105.0" cy="10.7" r="2.4" fill="var(--card, #161b22)" stroke="#3fb950" stroke-width="1.4"/><title>live API reading from an earlier session (2026-10-19 04:33) - no standalone json artifact</title><circle cx="210.0" cy="2.0" r="1.9" fill="#3fb950"/></svg><span class="done-cap">md3 rebuild 54% &rarr; 86.7% &rarr; complete</span></span>
+    </div>
+    <div class="tasks">
+        <div class="task scrub">
+          <div class="task-head">
+            <span class="badge scrub">DATA SCRUB</span>
+            <span class="task-box">ds1 &middot; volume_2</span>
+            <span class="task-pct">16.52%</span>
+          </div>
+          <div class="bar"><div class="bar-fill" style="width:16.52%;background:#bc8cff"></div></div>
+          <div class="task-foot">
+            <span class="spark-wrap"><svg class="spark" width="118" height="26" viewBox="0 0 118 26"><polyline points="0.0,24.0 19.7,2.3 39.3,2.2 59.0,2.2 78.7,2.2 98.3,2.1 118.0,2.0" fill="none" stroke="#bc8cff" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" opacity=".85"/><circle cx="0.0" cy="24.0" r="2.4" fill="var(--card, #161b22)" stroke="#bc8cff" stroke-width="1.4"/><title>live API reading from an earlier session (2026-10-19 04:33) - no standalone json artifact</title><circle cx="19.7" cy="2.3" r="1.9" fill="#bc8cff"/><circle cx="39.3" cy="2.2" r="1.9" fill="#bc8cff"/><circle cx="59.0" cy="2.2" r="1.9" fill="#bc8cff"/><circle cx="78.7" cy="2.2" r="1.9" fill="#bc8cff"/><circle cx="98.3" cy="2.1" r="1.9" fill="#bc8cff"/><circle cx="118.0" cy="2.0" r="1.9" fill="#bc8cff"/></svg></span>
+            <span class="eta-wrap"><span class="eta">529h left</span><span class="rate">0.16 pts/h &middot; live rate</span></span>
+          </div>
+          <div class="okline">rate stable &mdash; live 0.16 pts/h matches the 26h average</div><div class="noteline">baseline 2026-10-19 04:33 is a live API reading taken in an earlier session &mdash; a real measurement, but from a different run, so the long-window average spans sessions</div>
+          <div class="task-foot2">6 readings &middot; as of 2026-10-20 07:02 &middot; 2026-10-20 06:43 &rarr; 2026-10-20 07:02</div>
+        </div>
+        <div class="task scrub">
+          <div class="task-head">
+            <span class="badge scrub">DATA SCRUB</span>
+            <span class="task-box">ds4 &middot; volume_2</span>
+            <span class="task-pct">55.14%</span>
+          </div>
+          <div class="bar"><div class="bar-fill" style="width:55.14%;background:#bc8cff"></div></div>
+          <div class="task-foot">
+            <span class="spark-wrap"><svg class="spark" width="118" height="26" viewBox="0 0 118 26"><polyline points="0.0,24.0 19.7,2.0 39.3,2.0 59.0,2.0 78.7,2.0 98.3,2.0 118.0,2.0" fill="none" stroke="#bc8cff" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" opacity=".85"/><circle cx="0.0" cy="24.0" r="2.4" fill="var(--card, #161b22)" stroke="#bc8cff" stroke-width="1.4"/><title>live API reading from an earlier session (2026-10-19 04:33) - no standalone json artifact</title><circle cx="19.7" cy="2.0" r="1.9" fill="#bc8cff"/><circle cx="39.3" cy="2.0" r="1.9" fill="#bc8cff"/><circle cx="59.0" cy="2.0" r="1.9" fill="#bc8cff"/><circle cx="78.7" cy="2.0" r="1.9" fill="#bc8cff"/><circle cx="98.3" cy="2.0" r="1.9" fill="#bc8cff"/><circle cx="118.0" cy="2.0" r="1.9" fill="#bc8cff"/></svg></span>
+            <span class="eta-wrap"><span class="eta">237h left</span><span class="rate">0.19 pts/h &middot; live rate</span></span>
+          </div>
+          <div class="warnline">rate unstable &mdash; live 0.19 pts/h vs 26h avg 1.69 pts/h; ETA uses the live rate</div><div class="noteline">baseline 2026-10-19 04:33 is a live API reading taken in an earlier session &mdash; a real measurement, but from a different run, so the long-window average spans sessions</div>
+          <div class="task-foot2">6 readings &middot; as of 2026-10-20 07:02 &middot; 2026-10-20 06:43 &rarr; 2026-10-20 07:02</div>
+        </div></div>
+  </div>
+
+  <div class="boxes">
+    <section class="boxcard scrub">
+      <header class="bc-head">
+        <div class="bc-title">
+          <h2>ds1</h2>
+          <div class="bc-meta">
+            <span>DS2413+</span>
+            <span>up 66:31:2</span>
+            <span class="t-ok">34&deg;C</span>
+          </div>
+        </div>
+        <span class="state scrub">SCRUBBING</span>
+      </header>
+
+      <div class="bc-grid">
+        <div class="bc-col">
+          <h3>Volumes</h3>
+          
+        <div class="vol">
+          <div class="vol-top">
+            <span class="vname">volume_1</span>
+            <span class="pill ok">normal</span>
+            <span class="vfill">80% full</span>
+          </div>
+          <div class="bar"><div class="bar-fill thin" style="width:80.00%;background:#e3b341"></div></div>
+          <div class="vol-meta">
+            <span>107.5 TB &middot; 21.2 TB free</span>
+            <span>scrub: no_action</span>
+            
+          </div>
+          
+        </div>
+        <div class="vol">
+          <div class="vol-top">
+            <span class="vname">volume_2</span>
+            <span class="pill scrub">background</span>
+            <span class="vfill">58% full</span>
+          </div>
+          <div class="bar"><div class="bar-fill thin" style="width:58.00%;background:#3fb950"></div></div>
+          <div class="vol-meta">
+            <span>79.6 TB &middot; 33.3 TB free</span>
+            <span>scrub: kernel_running</span>
+            
+          </div>
+          <div class="vprog"><span class="mini-label">DATA SCRUB</span><div class="bar"><div class="bar-fill" style="width:16.52%;background:#bc8cff"></div></div><span class="mini-pct">16.52%</span></div><div class="vrate">live 0.16 pts/h &middot; ETA ~529h</div>
+        </div>
+          <h3>Storage pools &mdash; members</h3>
+          
+        <div class="pool">
+          <div class="pool-top">
+            <span class="praid">/dev/md4 &middot; reuse_1</span>
+            <span class="pmem ok">8/8</span>
+          </div>
+          <div class="pips"><span class="pip ok" title="slot 7 sdh normal"></span><span class="pip ok" title="slot 6 sdg normal"></span><span class="pip ok" title="slot 5 sdf normal"></span><span class="pip ok" title="slot 3 sde normal"></span><span class="pip ok" title="slot 4 sdd normal"></span><span class="pip ok" title="slot 2 sdc normal"></span><span class="pip ok" title="slot 1 sdb normal"></span><span class="pip ok" title="slot 0 sda normal"></span></div>
+        </div>
+        <div class="pool">
+          <div class="pool-top">
+            <span class="praid">/dev/md2 &middot; reuse_1</span>
+            <span class="pmem ok">12/12</span>
+          </div>
+          <div class="pips"><span class="pip ok" title="slot 11 sdl normal"></span><span class="pip ok" title="slot 10 sdk normal"></span><span class="pip ok" title="slot 9 sdj normal"></span><span class="pip ok" title="slot 8 sdi normal"></span><span class="pip ok" title="slot 7 sdh normal"></span><span class="pip ok" title="slot 6 sdg normal"></span><span class="pip ok" title="slot 5 sdf normal"></span><span class="pip ok" title="slot 3 sde normal"></span><span class="pip ok" title="slot 4 sdd normal"></span><span class="pip ok" title="slot 2 sdc normal"></span><span class="pip ok" title="slot 1 sdb normal"></span><span class="pip ok" title="slot 0 sda normal"></span></div>
+        </div>
+        <div class="pool">
+          <div class="pool-top">
+            <span class="praid">/dev/md3 &middot; reuse_2</span>
+            <span class="pmem ok">12/12</span>
+          </div>
+          <div class="pips"><span class="pip ok" title="slot 10 sdpc normal"></span><span class="pip ok" title="slot 11 sdpb normal"></span><span class="pip ok" title="slot 9 sdpa normal"></span><span class="pip ok" title="slot 8 sdoc normal"></span><span class="pip ok" title="slot 7 sdob normal"></span><span class="pip ok" title="slot 6 sdoa normal"></span><span class="pip ok" title="slot 5 sdnc normal"></span><span class="pip ok" title="slot 4 sdnb normal"></span><span class="pip ok" title="slot 3 sdna normal"></span><span class="pip ok" title="slot 2 sdmc normal"></span><span class="pip ok" title="slot 1 sdmb normal"></span><span class="pip ok" title="slot 0 sdma normal"></span></div>
+        </div>
+        </div>
+        <div class="bc-col">
+          <h3>Disks needing attention <span class="mut">(24 total)</span></h3>
+          <div class="mut small">none &mdash; all members normal</div>
+          <h3>Findings</h3>
+          <ul class="findings medium"><li>volume_2 data scrub at 16.52</li></ul>
+        </div>
+      </div>
+    </section>
+    <section class="boxcard crit">
+      <header class="bc-head">
+        <div class="bc-title">
+          <h2>ds2</h2>
+          <div class="bc-meta">
+            <span>DS2411+</span>
+            <span>up 66:31:32</span>
+            <span class="t-ok">36&deg;C</span>
+          </div>
+        </div>
+        <span class="state crit">DEGRADED</span>
+      </header>
+
+      <div class="bc-grid">
+        <div class="bc-col">
+          <h3>Volumes</h3>
+          
+        <div class="vol">
+          <div class="vol-top">
+            <span class="vname">volume_2</span>
+            <span class="pill ok">normal</span>
+            <span class="vfill">37% full</span>
+          </div>
+          <div class="bar"><div class="bar-fill thin" style="width:37.00%;background:#3fb950"></div></div>
+          <div class="vol-meta">
+            <span>29.8 TB &middot; 18.9 TB free</span>
+            <span>scrub: kernel_running</span>
+            
+          </div>
+          <div class="vprog"><span class="mini-label">SCRUB RUNNING</span><span class="vnone">no progress exposed for this scrub (step=none, percent=-1)</span></div>
+        </div>
+        <div class="vol">
+          <div class="vol-top">
+            <span class="vname">volume_1</span>
+            <span class="pill crit">degrade</span>
+            <span class="vfill">38% full</span>
+          </div>
+          <div class="bar"><div class="bar-fill thin" style="width:38.00%;background:#3fb950"></div></div>
+          <div class="vol-meta">
+            <span>29.8 TB &middot; 18.5 TB free</span>
+            <span>scrub: abnormal</span>
+            <span class="fail">failures: 2</span>
+          </div>
+          
+        </div>
+          <h3>Storage pools &mdash; members</h3>
+          
+        <div class="pool">
+          <div class="pool-top">
+            <span class="praid">/dev/md3 &middot; reuse_2</span>
+            <span class="pmem ok">12/12</span>
+          </div>
+          <div class="pips"><span class="pip ok" title="slot 11 sdpc normal"></span><span class="pip ok" title="slot 10 sdpb normal"></span><span class="pip ok" title="slot 8 sdoc normal"></span><span class="pip ok" title="slot 7 sdob normal"></span><span class="pip ok" title="slot 6 sdoa normal"></span><span class="pip ok" title="slot 5 sdnc normal"></span><span class="pip ok" title="slot 4 sdnb normal"></span><span class="pip ok" title="slot 3 sdna normal"></span><span class="pip ok" title="slot 2 sdmc normal"></span><span class="pip ok" title="slot 1 sdmb normal"></span><span class="pip ok" title="slot 0 sdma normal"></span><span class="pip ok" title="slot 9 sdi normal"></span></div>
+        </div>
+        <div class="pool">
+          <div class="pool-top">
+            <span class="praid">/dev/md2 &middot; reuse_1</span>
+            <span class="pmem crit">10/12</span>
+          </div>
+          <div class="pips"><span class="pip ok" title="slot 11 sdl normal"></span><span class="pip ok" title="slot 6 sdk normal"></span><span class="pip ok" title="slot 9 sdj normal"></span><span class="pip ok" title="slot 7 sdh normal"></span><span class="pip ok" title="slot 10 sdg normal"></span><span class="pip ok" title="slot 5 sdf normal"></span><span class="pip ok" title="slot 4 sde normal"></span><span class="pip ok" title="slot 3 sdd normal"></span><span class="pip ok" title="slot 2 sdc normal"></span><span class="pip ok" title="slot 1 sdb normal"></span><span class="pip missing" title="member absent"></span><span class="pip missing" title="member absent"></span></div>
+        </div>
+        </div>
+        <div class="bc-col">
+          <h3>Disks needing attention <span class="mut">(23 total)</span></h3>
+          
+        <div class="diskrow">
+          <span class="pill crit">not_use</span>
+          <span class="dname">sdpa &middot; bay 10</span>
+          <span class="dsmart">SMART failing</span>
+        </div>
+          <h3>Findings</h3>
+          <ul class="findings crit"><li>volume_1 is degrade (38% full)</li><li>/dev/md2 has 10/12 members (pool reuse_1)</li></ul><ul class="findings high"><li>volume_1 scrubbingStatus=abnormal</li><li>sdpa (slot 10) not_use, SMART failing, REDACTED</li><li>sdpa DSM smart_status=failing — confirm on-box with smartctl before condemning</li></ul><ul class="findings low"><li>volume_2 scrub flagged kernel_running but progress.step=none, percent=-1 (no progress exposed)</li></ul>
+        </div>
+      </div>
+    </section>
+    <section class="boxcard ok">
+      <header class="bc-head">
+        <div class="bc-title">
+          <h2>ds3</h2>
+          <div class="bc-meta">
+            <span>DS2413+</span>
+            <span>up 114:35:52</span>
+            <span class="t-warn">40&deg;C</span>
+          </div>
+        </div>
+        <span class="state ok">HEALTHY</span>
+      </header>
+
+      <div class="bc-grid">
+        <div class="bc-col">
+          <h3>Volumes</h3>
+          
+        <div class="vol">
+          <div class="vol-top">
+            <span class="vname">volume_2</span>
+            <span class="pill ok">normal</span>
+            <span class="vfill">54% full</span>
+          </div>
+          <div class="bar"><div class="bar-fill thin" style="width:54.00%;background:#3fb950"></div></div>
+          <div class="vol-meta">
+            <span>54.1 TB &middot; 25.1 TB free</span>
+            <span>scrub: has_not_run_yet</span>
+            
+          </div>
+          
+        </div>
+        <div class="vol">
+          <div class="vol-top">
+            <span class="vname">volume_1</span>
+            <span class="pill ok">normal</span>
+            <span class="vfill">70% full</span>
+          </div>
+          <div class="bar"><div class="bar-fill thin" style="width:70.00%;background:#3fb950"></div></div>
+          <div class="vol-meta">
+            <span>69.7 TB &middot; 21.2 TB free</span>
+            <span>scrub: no_action</span>
+            
+          </div>
+          
+        </div>
+          <h3>Storage pools &mdash; members</h3>
+          
+        <div class="pool">
+          <div class="pool-top">
+            <span class="praid">/dev/md5 &middot; reuse_2</span>
+            <span class="pmem ok">7/7</span>
+          </div>
+          <div class="pips"><span class="pip ok" title="slot 3 sdpa normal"></span><span class="pip ok" title="slot 2 sdoc normal"></span><span class="pip ok" title="slot 4 sdob normal"></span><span class="pip ok" title="slot 6 sdnb normal"></span><span class="pip ok" title="slot 1 sdna normal"></span><span class="pip ok" title="slot 5 sdmb normal"></span><span class="pip ok" title="slot 0 sdma normal"></span></div>
+        </div>
+        <div class="pool">
+          <div class="pool-top">
+            <span class="praid">/dev/md3 &middot; reuse_2</span>
+            <span class="pmem ok">12/12</span>
+          </div>
+          <div class="pips"><span class="pip ok" title="slot 10 sdpc normal"></span><span class="pip ok" title="slot 11 sdpb normal"></span><span class="pip ok" title="slot 9 sdpa normal"></span><span class="pip ok" title="slot 8 sdoc normal"></span><span class="pip ok" title="slot 7 sdob normal"></span><span class="pip ok" title="slot 6 sdoa normal"></span><span class="pip ok" title="slot 5 sdnc normal"></span><span class="pip ok" title="slot 4 sdnb normal"></span><span class="pip ok" title="slot 3 sdna normal"></span><span class="pip ok" title="slot 2 sdmc normal"></span><span class="pip ok" title="slot 1 sdmb normal"></span><span class="pip ok" title="slot 0 sdma normal"></span></div>
+        </div>
+        <div class="pool">
+          <div class="pool-top">
+            <span class="praid">/dev/md4 &middot; reuse_1</span>
+            <span class="pmem ok">10/10</span>
+          </div>
+          <div class="pips"><span class="pip ok" title="slot 9 sdk normal"></span><span class="pip ok" title="slot 8 sdi normal"></span><span class="pip ok" title="slot 7 sdh normal"></span><span class="pip ok" title="slot 6 sdg normal"></span><span class="pip ok" title="slot 5 sdf normal"></span><span class="pip ok" title="slot 4 sde normal"></span><span class="pip ok" title="slot 3 sdd normal"></span><span class="pip ok" title="slot 2 sdc normal"></span><span class="pip ok" title="slot 1 sdb normal"></span><span class="pip ok" title="slot 0 sda normal"></span></div>
+        </div>
+        <div class="pool">
+          <div class="pool-top">
+            <span class="praid">/dev/md2 &middot; reuse_1</span>
+            <span class="pmem ok">12/12</span>
+          </div>
+          <div class="pips"><span class="pip ok" title="slot 11 sdl normal"></span><span class="pip ok" title="slot 10 sdk normal"></span><span class="pip ok" title="slot 9 sdj normal"></span><span class="pip ok" title="slot 8 sdi normal"></span><span class="pip ok" title="slot 7 sdh normal"></span><span class="pip ok" title="slot 6 sdg normal"></span><span class="pip ok" title="slot 5 sdf normal"></span><span class="pip ok" title="slot 4 sde normal"></span><span class="pip ok" title="slot 3 sdd normal"></span><span class="pip ok" title="slot 2 sdc normal"></span><span class="pip ok" title="slot 1 sdb normal"></span><span class="pip ok" title="slot 0 sda normal"></span></div>
+        </div>
+        </div>
+        <div class="bc-col">
+          <h3>Disks needing attention <span class="mut">(24 total)</span></h3>
+          <div class="mut small">none &mdash; all members normal</div>
+          <h3>Findings</h3>
+          <ul class="findings low"><li>volume_2 never scrubbed</li></ul>
+        </div>
+      </div>
+    </section>
+    <section class="boxcard crit">
+      <header class="bc-head">
+        <div class="bc-title">
+          <h2>ds4</h2>
+          <div class="bc-meta">
+            <span>DS2413+</span>
+            <span>up 66:31:19</span>
+            <span class="t-warn">41&deg;C</span>
+          </div>
+        </div>
+        <span class="state crit">DEGRADED</span>
+      </header>
+
+      <div class="bc-grid">
+        <div class="bc-col">
+          <h3>Volumes</h3>
+          
+        <div class="vol">
+          <div class="vol-top">
+            <span class="vname">volume_1</span>
+            <span class="pill crit">degrade</span>
+            <span class="vfill">80% full</span>
+          </div>
+          <div class="bar"><div class="bar-fill thin" style="width:80.00%;background:#e3b341"></div></div>
+          <div class="vol-meta">
+            <span>45.2 TB &middot; 9.1 TB free</span>
+            <span>scrub: abnormal</span>
+            <span class="fail">failures: 1</span>
+          </div>
+          
+        </div>
+        <div class="vol">
+          <div class="vol-top">
+            <span class="vname">volume_2</span>
+            <span class="pill scrub">background</span>
+            <span class="vfill">64% full</span>
+          </div>
+          <div class="bar"><div class="bar-fill thin" style="width:64.00%;background:#3fb950"></div></div>
+          <div class="vol-meta">
+            <span>64.7 TB &middot; 23.6 TB free</span>
+            <span>scrub: kernel_running</span>
+            
+          </div>
+          <div class="vprog"><span class="mini-label">DATA SCRUB</span><div class="bar"><div class="bar-fill" style="width:55.14%;background:#bc8cff"></div></div><span class="mini-pct">55.14%</span></div><div class="vrate">live 0.19 pts/h &middot; ETA ~237h (unstable)</div>
+        </div>
+          <h3>Storage pools &mdash; members</h3>
+          
+        <div class="pool">
+          <div class="pool-top">
+            <span class="praid">/dev/md6 &middot; reuse_1</span>
+            <span class="pmem ok">4/4</span>
+          </div>
+          <div class="pips"><span class="pip ok" title="slot 1 sdl normal"></span><span class="pip ok" title="slot 0 sdk normal"></span><span class="pip ok" title="slot 2 sdi normal"></span><span class="pip ok" title="slot 3 sde normal"></span></div>
+        </div>
+        <div class="pool">
+          <div class="pool-top">
+            <span class="praid">/dev/md2 &middot; reuse_1</span>
+            <span class="pmem crit">11/12</span>
+          </div>
+          <div class="pips"><span class="pip ok" title="slot 1 sdl normal"></span><span class="pip ok" title="slot 0 sdk normal"></span><span class="pip warn" title="slot 9 sdj system_crashed (drive reports system_crashed)"></span><span class="pip ok" title="slot 8 sdi normal"></span><span class="pip warn" title="slot 7 sdh system_crashed (drive reports system_crashed)"></span><span class="pip warn" title="slot 6 sdg system_crashed (drive reports system_crashed)"></span><span class="pip warn" title="slot 5 sdf system_crashed (drive reports system_crashed)"></span><span class="pip ok" title="slot 4 sde normal"></span><span class="pip ok" title="slot 3 sdd normal"></span><span class="pip ok" title="slot 2 sdc normal"></span><span class="pip ok" title="slot 11 sdb normal"></span><span class="pip missing" title="member absent"></span></div>
+        </div>
+        <div class="pool">
+          <div class="pool-top">
+            <span class="praid">/dev/md4 &middot; reuse_1</span>
+            <span class="pmem ok">6/6</span>
+          </div>
+          <div class="pips"><span class="pip ok" title="slot 4 sdl normal"></span><span class="pip ok" title="slot 0 sdk normal"></span><span class="pip ok" title="slot 3 sdi normal"></span><span class="pip ok" title="slot 5 sde normal"></span><span class="pip ok" title="slot 2 sdd normal"></span><span class="pip ok" title="slot 1 sdc normal"></span></div>
+        </div>
+        <div class="pool">
+          <div class="pool-top">
+            <span class="praid">/dev/md5 &middot; reuse_2</span>
+            <span class="pmem ok">9/9</span>
+          </div>
+          <div class="pips"><span class="pip ok" title="slot 1 sdpc normal"></span><span class="pip ok" title="slot 0 sdpb normal"></span><span class="pip ok" title="slot 2 sdpa normal"></span><span class="pip ok" title="slot 8 sdob normal"></span><span class="pip ok" title="slot 5 sdoa normal"></span><span class="pip ok" title="slot 4 sdnc normal"></span><span class="pip ok" title="slot 6 sdnb normal"></span><span class="pip ok" title="slot 7 sdna normal"></span><span class="pip ok" title="slot 3 sdmc normal"></span></div>
+        </div>
+        <div class="pool">
+          <div class="pool-top">
+            <span class="praid">/dev/md3 &middot; reuse_2</span>
+            <span class="pmem ok">12/12</span>
+          </div>
+          <div class="pips"><span class="pip ok" title="slot 1 sdpc normal"></span><span class="pip ok" title="slot 0 sdpb normal"></span><span class="pip ok" title="slot 9 sdpa normal"></span><span class="pip ok" title="slot 8 sdoc normal"></span><span class="pip ok" title="slot 7 sdob normal"></span><span class="pip ok" title="slot 6 sdoa normal"></span><span class="pip ok" title="slot 5 sdnc normal"></span><span class="pip ok" title="slot 4 sdnb normal"></span><span class="pip ok" title="slot 3 sdna normal"></span><span class="pip ok" title="slot 2 sdmc normal"></span><span class="pip ok" title="slot 11 sdmb normal"></span><span class="pip ok" title="slot 10 sdma normal"></span></div>
+        </div>
+        </div>
+        <div class="bc-col">
+          <h3>Disks needing attention <span class="mut">(24 total)</span></h3>
+          
+        <div class="diskrow">
+          <span class="pill crit">not_use</span>
+          <span class="dname">sda &middot; bay 1</span>
+          <span class="dsmart">SMART normal</span>
+        </div>
+        <div class="diskrow">
+          <span class="pill warn">system_crashed</span>
+          <span class="dname">sdf &middot; bay 6</span>
+          <span class="dsmart">SMART normal</span>
+        </div>
+        <div class="diskrow">
+          <span class="pill warn">system_crashed</span>
+          <span class="dname">sdg &middot; bay 7</span>
+          <span class="dsmart">SMART normal</span>
+        </div>
+        <div class="diskrow">
+          <span class="pill warn">system_crashed</span>
+          <span class="dname">sdh &middot; bay 8</span>
+          <span class="dsmart">SMART normal</span>
+        </div>
+        <div class="diskrow">
+          <span class="pill warn">system_crashed</span>
+          <span class="dname">sdj &middot; bay 10</span>
+          <span class="dsmart">SMART normal</span>
+        </div>
+          <h3>Findings</h3>
+          <ul class="findings crit"><li>volume_1 is degrade (80% full)</li><li>/dev/md2 has 11/12 members (pool reuse_1)</li></ul><ul class="findings high"><li>volume_1 scrubbingStatus=abnormal</li></ul><ul class="findings medium"><li>volume_2 data scrub at 55.14</li><li>sda (slot 1) not_use, SMART normal, REDACTED</li></ul><ul class="findings low"><li>sdf flagged system_crashed</li><li>sdg flagged system_crashed</li><li>sdh flagged system_crashed</li><li>sdj flagged system_crashed</li></ul>
+        </div>
+      </div>
+    </section></div>
+  
+    <div class="legend">
+      <span><i class="sw rebuild"></i>raid_parity_checking (rebuild)</span>
+      <span><i class="sw scrub"></i>data_scrubbing</span>
+      <span><i class="sw ok"></i>normal member</span>
+      <span><i class="sw warn"></i>system_crashed</span>
+      <span><i class="sw crit"></i>not_use / missing member</span>
+    </div>
+    <div class="legend">
+      <span>sparkline points:</span>
+      <span><i class="dot filled"></i>live API reading (this session)</span>
+      <span><i class="dot hollow"></i>live API reading (earlier session, 2026-10-19)</span>
+      <span><i class="dot dashed"></i>unverified prose figure</span>
+    </div>
+  <footer>Read-only NAS API probes. No writes to any box.
+    Percentages are the API's own progress values; ETAs are linear extrapolations from measured readings and decelerate near completion.
+    Identifiers are pseudonymous bay/drive ids; no hostnames, addresses or part numbers are published.</footer>
+</body></html>

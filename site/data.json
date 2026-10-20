@@ -1,0 +1,2714 @@
+{
+ "schema": "ds-public/1",
+ "taken": "2026-10-20T07:02:41-0500",
+ "elapsed_s": 10.7,
+ "boxes": [
+  {
+   "id": "ds1",
+   "model": "DS2413+",
+   "uptime": "66:31:2",
+   "temp": 34,
+   "disk_count": 24,
+   "volumes": [
+    {
+     "id": "volume_1",
+     "status": "normal",
+     "pct": 80,
+     "tb": 107.5,
+     "free_tb": 21.2,
+     "scrub": "no_action",
+     "progress_percent": "-1",
+     "progress_step": "none",
+     "device_type": "shr_with_2_disk_protect",
+     "disk_failure_number": 0
+    },
+    {
+     "id": "volume_2",
+     "status": "background",
+     "pct": 58,
+     "tb": 79.6,
+     "free_tb": 33.3,
+     "scrub": "kernel_running",
+     "progress_percent": "16.52",
+     "progress_step": "data_scrubbing",
+     "device_type": "shr_with_2_disk_protect",
+     "disk_failure_number": 0
+    }
+   ],
+   "pools": [
+    {
+     "pool_id": "reuse_1",
+     "deploy_path": "volume_1",
+     "raid": "/dev/md4",
+     "have": 8,
+     "need": 8,
+     "raid_status": null,
+     "disk_failure_number": 0,
+     "devices": [
+      {
+       "name": null,
+       "slot": 7,
+       "status": "normal",
+       "disk_id": "sdh",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 6,
+       "status": "normal",
+       "disk_id": "sdg",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 5,
+       "status": "normal",
+       "disk_id": "sdf",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 3,
+       "status": "normal",
+       "disk_id": "sde",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 4,
+       "status": "normal",
+       "disk_id": "sdd",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 2,
+       "status": "normal",
+       "disk_id": "sdc",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 1,
+       "status": "normal",
+       "disk_id": "sdb",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 0,
+       "status": "normal",
+       "disk_id": "sda",
+       "in_dev": null
+      }
+     ]
+    },
+    {
+     "pool_id": "reuse_1",
+     "deploy_path": "volume_1",
+     "raid": "/dev/md2",
+     "have": 12,
+     "need": 12,
+     "raid_status": null,
+     "disk_failure_number": 0,
+     "devices": [
+      {
+       "name": null,
+       "slot": 11,
+       "status": "normal",
+       "disk_id": "sdl",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 10,
+       "status": "normal",
+       "disk_id": "sdk",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 9,
+       "status": "normal",
+       "disk_id": "sdj",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 8,
+       "status": "normal",
+       "disk_id": "sdi",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 7,
+       "status": "normal",
+       "disk_id": "sdh",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 6,
+       "status": "normal",
+       "disk_id": "sdg",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 5,
+       "status": "normal",
+       "disk_id": "sdf",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 3,
+       "status": "normal",
+       "disk_id": "sde",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 4,
+       "status": "normal",
+       "disk_id": "sdd",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 2,
+       "status": "normal",
+       "disk_id": "sdc",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 1,
+       "status": "normal",
+       "disk_id": "sdb",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 0,
+       "status": "normal",
+       "disk_id": "sda",
+       "in_dev": null
+      }
+     ]
+    },
+    {
+     "pool_id": "reuse_2",
+     "deploy_path": "volume_2",
+     "raid": "/dev/md3",
+     "have": 12,
+     "need": 12,
+     "raid_status": null,
+     "disk_failure_number": 0,
+     "devices": [
+      {
+       "name": null,
+       "slot": 10,
+       "status": "normal",
+       "disk_id": "sdpc",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 11,
+       "status": "normal",
+       "disk_id": "sdpb",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 9,
+       "status": "normal",
+       "disk_id": "sdpa",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 8,
+       "status": "normal",
+       "disk_id": "sdoc",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 7,
+       "status": "normal",
+       "disk_id": "sdob",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 6,
+       "status": "normal",
+       "disk_id": "sdoa",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 5,
+       "status": "normal",
+       "disk_id": "sdnc",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 4,
+       "status": "normal",
+       "disk_id": "sdnb",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 3,
+       "status": "normal",
+       "disk_id": "sdna",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 2,
+       "status": "normal",
+       "disk_id": "sdmc",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 1,
+       "status": "normal",
+       "disk_id": "sdmb",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 0,
+       "status": "normal",
+       "disk_id": "sdma",
+       "in_dev": null
+      }
+     ]
+    }
+   ],
+   "disks": [
+    {
+     "id": "sda",
+     "slot": 1,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 14.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdb",
+     "slot": 2,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 14.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdc",
+     "slot": 3,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 14.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdd",
+     "slot": 4,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 14.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sde",
+     "slot": 5,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 14.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdf",
+     "slot": 6,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 14.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdg",
+     "slot": 7,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 14.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdh",
+     "slot": 8,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 14.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdi",
+     "slot": 9,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 6.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdj",
+     "slot": 10,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 6.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdk",
+     "slot": 11,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 6.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdl",
+     "slot": 12,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 6.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdma",
+     "slot": 1,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdmb",
+     "slot": 2,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdmc",
+     "slot": 3,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdna",
+     "slot": 4,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdnb",
+     "slot": 5,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdnc",
+     "slot": 6,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdoa",
+     "slot": 7,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdob",
+     "slot": 8,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdoc",
+     "slot": 9,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdpa",
+     "slot": 10,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdpb",
+     "slot": 11,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdpc",
+     "slot": 12,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_2",
+     "temp": null
+    }
+   ],
+   "rebuilding_members": [],
+   "findings": [
+    {
+     "sev": "medium",
+     "msg": "volume_2 data scrub at 16.52"
+    }
+   ]
+  },
+  {
+   "id": "ds2",
+   "model": "DS2411+",
+   "uptime": "66:31:32",
+   "temp": 36,
+   "disk_count": 23,
+   "volumes": [
+    {
+     "id": "volume_2",
+     "status": "normal",
+     "pct": 37,
+     "tb": 29.8,
+     "free_tb": 18.9,
+     "scrub": "kernel_running",
+     "progress_percent": "-1",
+     "progress_step": "none",
+     "device_type": "shr_with_2_disk_protect",
+     "disk_failure_number": 0
+    },
+    {
+     "id": "volume_1",
+     "status": "degrade",
+     "pct": 38,
+     "tb": 29.8,
+     "free_tb": 18.5,
+     "scrub": "abnormal",
+     "progress_percent": "-1",
+     "progress_step": "none",
+     "device_type": "shr_with_2_disk_protect",
+     "disk_failure_number": 2
+    }
+   ],
+   "pools": [
+    {
+     "pool_id": "reuse_2",
+     "deploy_path": "volume_2",
+     "raid": "/dev/md3",
+     "have": 12,
+     "need": 12,
+     "raid_status": null,
+     "disk_failure_number": 0,
+     "devices": [
+      {
+       "name": null,
+       "slot": 11,
+       "status": "normal",
+       "disk_id": "sdpc",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 10,
+       "status": "normal",
+       "disk_id": "sdpb",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 8,
+       "status": "normal",
+       "disk_id": "sdoc",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 7,
+       "status": "normal",
+       "disk_id": "sdob",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 6,
+       "status": "normal",
+       "disk_id": "sdoa",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 5,
+       "status": "normal",
+       "disk_id": "sdnc",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 4,
+       "status": "normal",
+       "disk_id": "sdnb",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 3,
+       "status": "normal",
+       "disk_id": "sdna",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 2,
+       "status": "normal",
+       "disk_id": "sdmc",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 1,
+       "status": "normal",
+       "disk_id": "sdmb",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 0,
+       "status": "normal",
+       "disk_id": "sdma",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 9,
+       "status": "normal",
+       "disk_id": "sdi",
+       "in_dev": null
+      }
+     ]
+    },
+    {
+     "pool_id": "reuse_1",
+     "deploy_path": "volume_1",
+     "raid": "/dev/md2",
+     "have": 10,
+     "need": 12,
+     "raid_status": null,
+     "disk_failure_number": 2,
+     "devices": [
+      {
+       "name": null,
+       "slot": 11,
+       "status": "normal",
+       "disk_id": "sdl",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 6,
+       "status": "normal",
+       "disk_id": "sdk",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 9,
+       "status": "normal",
+       "disk_id": "sdj",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 7,
+       "status": "normal",
+       "disk_id": "sdh",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 10,
+       "status": "normal",
+       "disk_id": "sdg",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 5,
+       "status": "normal",
+       "disk_id": "sdf",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 4,
+       "status": "normal",
+       "disk_id": "sde",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 3,
+       "status": "normal",
+       "disk_id": "sdd",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 2,
+       "status": "normal",
+       "disk_id": "sdc",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 1,
+       "status": "normal",
+       "disk_id": "sdb",
+       "in_dev": null
+      }
+     ]
+    }
+   ],
+   "disks": [
+    {
+     "id": "sdb",
+     "slot": 2,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 3.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdc",
+     "slot": 3,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 3.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdd",
+     "slot": 4,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 3.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sde",
+     "slot": 5,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 3.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdf",
+     "slot": 6,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 3.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdg",
+     "slot": 7,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 3.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdh",
+     "slot": 8,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 6.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdi",
+     "slot": 9,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 6.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdj",
+     "slot": 10,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdk",
+     "slot": 11,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 3.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdl",
+     "slot": 12,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 3.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdma",
+     "slot": 1,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 3.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdmb",
+     "slot": 2,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 3.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdmc",
+     "slot": 3,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 3.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdna",
+     "slot": 4,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 6.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdnb",
+     "slot": 5,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 3.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdnc",
+     "slot": 6,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 3.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdoa",
+     "slot": 7,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 3.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdob",
+     "slot": 8,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 3.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdoc",
+     "slot": 9,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 3.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdpa",
+     "slot": 10,
+     "status": "not_use",
+     "smart": "failing",
+     "size_tb": 3.0,
+     "used_by": "",
+     "temp": null
+    },
+    {
+     "id": "sdpb",
+     "slot": 11,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 3.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdpc",
+     "slot": 12,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 3.0,
+     "used_by": "reuse_2",
+     "temp": null
+    }
+   ],
+   "rebuilding_members": [],
+   "findings": [
+    {
+     "sev": "low",
+     "msg": "volume_2 scrub flagged kernel_running but progress.step=none, percent=-1 (no progress exposed)"
+    },
+    {
+     "sev": "critical",
+     "msg": "volume_1 is degrade (38% full)"
+    },
+    {
+     "sev": "high",
+     "msg": "volume_1 scrubbingStatus=abnormal"
+    },
+    {
+     "sev": "critical",
+     "msg": "/dev/md2 has 10/12 members (pool reuse_1)"
+    },
+    {
+     "sev": "high",
+     "msg": "sdpa (slot 10) not_use, SMART failing, REDACTED"
+    },
+    {
+     "sev": "high",
+     "msg": "sdpa DSM smart_status=failing \u2014 confirm on-box with smartctl before condemning"
+    }
+   ]
+  },
+  {
+   "id": "ds3",
+   "model": "DS2413+",
+   "uptime": "114:35:52",
+   "temp": 40,
+   "disk_count": 24,
+   "volumes": [
+    {
+     "id": "volume_2",
+     "status": "normal",
+     "pct": 54,
+     "tb": 54.1,
+     "free_tb": 25.1,
+     "scrub": "has_not_run_yet",
+     "progress_percent": "-1",
+     "progress_step": "none",
+     "device_type": "shr_with_2_disk_protect",
+     "disk_failure_number": 0
+    },
+    {
+     "id": "volume_1",
+     "status": "normal",
+     "pct": 70,
+     "tb": 69.7,
+     "free_tb": 21.2,
+     "scrub": "no_action",
+     "progress_percent": "-1",
+     "progress_step": "none",
+     "device_type": "shr_with_2_disk_protect",
+     "disk_failure_number": 0
+    }
+   ],
+   "pools": [
+    {
+     "pool_id": "reuse_2",
+     "deploy_path": "volume_2",
+     "raid": "/dev/md5",
+     "have": 7,
+     "need": 7,
+     "raid_status": null,
+     "disk_failure_number": 0,
+     "devices": [
+      {
+       "name": null,
+       "slot": 3,
+       "status": "normal",
+       "disk_id": "sdpa",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 2,
+       "status": "normal",
+       "disk_id": "sdoc",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 4,
+       "status": "normal",
+       "disk_id": "sdob",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 6,
+       "status": "normal",
+       "disk_id": "sdnb",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 1,
+       "status": "normal",
+       "disk_id": "sdna",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 5,
+       "status": "normal",
+       "disk_id": "sdmb",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 0,
+       "status": "normal",
+       "disk_id": "sdma",
+       "in_dev": null
+      }
+     ]
+    },
+    {
+     "pool_id": "reuse_2",
+     "deploy_path": "volume_2",
+     "raid": "/dev/md3",
+     "have": 12,
+     "need": 12,
+     "raid_status": null,
+     "disk_failure_number": 0,
+     "devices": [
+      {
+       "name": null,
+       "slot": 10,
+       "status": "normal",
+       "disk_id": "sdpc",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 11,
+       "status": "normal",
+       "disk_id": "sdpb",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 9,
+       "status": "normal",
+       "disk_id": "sdpa",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 8,
+       "status": "normal",
+       "disk_id": "sdoc",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 7,
+       "status": "normal",
+       "disk_id": "sdob",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 6,
+       "status": "normal",
+       "disk_id": "sdoa",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 5,
+       "status": "normal",
+       "disk_id": "sdnc",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 4,
+       "status": "normal",
+       "disk_id": "sdnb",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 3,
+       "status": "normal",
+       "disk_id": "sdna",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 2,
+       "status": "normal",
+       "disk_id": "sdmc",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 1,
+       "status": "normal",
+       "disk_id": "sdmb",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 0,
+       "status": "normal",
+       "disk_id": "sdma",
+       "in_dev": null
+      }
+     ]
+    },
+    {
+     "pool_id": "reuse_1",
+     "deploy_path": "volume_1",
+     "raid": "/dev/md4",
+     "have": 10,
+     "need": 10,
+     "raid_status": null,
+     "disk_failure_number": 0,
+     "devices": [
+      {
+       "name": null,
+       "slot": 9,
+       "status": "normal",
+       "disk_id": "sdk",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 8,
+       "status": "normal",
+       "disk_id": "sdi",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 7,
+       "status": "normal",
+       "disk_id": "sdh",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 6,
+       "status": "normal",
+       "disk_id": "sdg",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 5,
+       "status": "normal",
+       "disk_id": "sdf",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 4,
+       "status": "normal",
+       "disk_id": "sde",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 3,
+       "status": "normal",
+       "disk_id": "sdd",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 2,
+       "status": "normal",
+       "disk_id": "sdc",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 1,
+       "status": "normal",
+       "disk_id": "sdb",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 0,
+       "status": "normal",
+       "disk_id": "sda",
+       "in_dev": null
+      }
+     ]
+    },
+    {
+     "pool_id": "reuse_1",
+     "deploy_path": "volume_1",
+     "raid": "/dev/md2",
+     "have": 12,
+     "need": 12,
+     "raid_status": null,
+     "disk_failure_number": 0,
+     "devices": [
+      {
+       "name": null,
+       "slot": 11,
+       "status": "normal",
+       "disk_id": "sdl",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 10,
+       "status": "normal",
+       "disk_id": "sdk",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 9,
+       "status": "normal",
+       "disk_id": "sdj",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 8,
+       "status": "normal",
+       "disk_id": "sdi",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 7,
+       "status": "normal",
+       "disk_id": "sdh",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 6,
+       "status": "normal",
+       "disk_id": "sdg",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 5,
+       "status": "normal",
+       "disk_id": "sdf",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 4,
+       "status": "normal",
+       "disk_id": "sde",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 3,
+       "status": "normal",
+       "disk_id": "sdd",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 2,
+       "status": "normal",
+       "disk_id": "sdc",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 1,
+       "status": "normal",
+       "disk_id": "sdb",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 0,
+       "status": "normal",
+       "disk_id": "sda",
+       "in_dev": null
+      }
+     ]
+    }
+   ],
+   "disks": [
+    {
+     "id": "sda",
+     "slot": 1,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdb",
+     "slot": 2,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdc",
+     "slot": 3,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdd",
+     "slot": 4,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sde",
+     "slot": 5,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdf",
+     "slot": 6,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdg",
+     "slot": 7,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdh",
+     "slot": 8,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdi",
+     "slot": 9,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdj",
+     "slot": 10,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 3.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdk",
+     "slot": 11,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdl",
+     "slot": 12,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 3.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdma",
+     "slot": 1,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdmb",
+     "slot": 2,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdmc",
+     "slot": 3,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 3.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdna",
+     "slot": 4,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdnb",
+     "slot": 5,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdnc",
+     "slot": 6,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 3.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdoa",
+     "slot": 7,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 3.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdob",
+     "slot": 8,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdoc",
+     "slot": 9,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdpa",
+     "slot": 10,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdpb",
+     "slot": 11,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 3.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdpc",
+     "slot": 12,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 3.0,
+     "used_by": "reuse_2",
+     "temp": null
+    }
+   ],
+   "rebuilding_members": [],
+   "findings": [
+    {
+     "sev": "low",
+     "msg": "volume_2 never scrubbed"
+    }
+   ]
+  },
+  {
+   "id": "ds4",
+   "model": "DS2413+",
+   "uptime": "66:31:19",
+   "temp": 41,
+   "disk_count": 24,
+   "volumes": [
+    {
+     "id": "volume_1",
+     "status": "degrade",
+     "pct": 80,
+     "tb": 45.2,
+     "free_tb": 9.1,
+     "scrub": "abnormal",
+     "progress_percent": "-1",
+     "progress_step": "none",
+     "device_type": "shr_with_2_disk_protect",
+     "disk_failure_number": 1
+    },
+    {
+     "id": "volume_2",
+     "status": "background",
+     "pct": 64,
+     "tb": 64.7,
+     "free_tb": 23.6,
+     "scrub": "kernel_running",
+     "progress_percent": "55.14",
+     "progress_step": "data_scrubbing",
+     "device_type": "shr_with_2_disk_protect",
+     "disk_failure_number": 0
+    }
+   ],
+   "pools": [
+    {
+     "pool_id": "reuse_1",
+     "deploy_path": "volume_1",
+     "raid": "/dev/md6",
+     "have": 4,
+     "need": 4,
+     "raid_status": null,
+     "disk_failure_number": 1,
+     "devices": [
+      {
+       "name": null,
+       "slot": 1,
+       "status": "normal",
+       "disk_id": "sdl",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 0,
+       "status": "normal",
+       "disk_id": "sdk",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 2,
+       "status": "normal",
+       "disk_id": "sdi",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 3,
+       "status": "normal",
+       "disk_id": "sde",
+       "in_dev": null
+      }
+     ]
+    },
+    {
+     "pool_id": "reuse_1",
+     "deploy_path": "volume_1",
+     "raid": "/dev/md2",
+     "have": 11,
+     "need": 12,
+     "raid_status": null,
+     "disk_failure_number": 1,
+     "devices": [
+      {
+       "name": null,
+       "slot": 1,
+       "status": "normal",
+       "disk_id": "sdl",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 0,
+       "status": "normal",
+       "disk_id": "sdk",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 9,
+       "status": "normal",
+       "disk_id": "sdj",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 8,
+       "status": "normal",
+       "disk_id": "sdi",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 7,
+       "status": "normal",
+       "disk_id": "sdh",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 6,
+       "status": "normal",
+       "disk_id": "sdg",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 5,
+       "status": "normal",
+       "disk_id": "sdf",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 4,
+       "status": "normal",
+       "disk_id": "sde",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 3,
+       "status": "normal",
+       "disk_id": "sdd",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 2,
+       "status": "normal",
+       "disk_id": "sdc",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 11,
+       "status": "normal",
+       "disk_id": "sdb",
+       "in_dev": null
+      }
+     ]
+    },
+    {
+     "pool_id": "reuse_1",
+     "deploy_path": "volume_1",
+     "raid": "/dev/md4",
+     "have": 6,
+     "need": 6,
+     "raid_status": null,
+     "disk_failure_number": 1,
+     "devices": [
+      {
+       "name": null,
+       "slot": 4,
+       "status": "normal",
+       "disk_id": "sdl",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 0,
+       "status": "normal",
+       "disk_id": "sdk",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 3,
+       "status": "normal",
+       "disk_id": "sdi",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 5,
+       "status": "normal",
+       "disk_id": "sde",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 2,
+       "status": "normal",
+       "disk_id": "sdd",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 1,
+       "status": "normal",
+       "disk_id": "sdc",
+       "in_dev": null
+      }
+     ]
+    },
+    {
+     "pool_id": "reuse_2",
+     "deploy_path": "volume_2",
+     "raid": "/dev/md5",
+     "have": 9,
+     "need": 9,
+     "raid_status": null,
+     "disk_failure_number": 0,
+     "devices": [
+      {
+       "name": null,
+       "slot": 1,
+       "status": "normal",
+       "disk_id": "sdpc",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 0,
+       "status": "normal",
+       "disk_id": "sdpb",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 2,
+       "status": "normal",
+       "disk_id": "sdpa",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 8,
+       "status": "normal",
+       "disk_id": "sdob",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 5,
+       "status": "normal",
+       "disk_id": "sdoa",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 4,
+       "status": "normal",
+       "disk_id": "sdnc",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 6,
+       "status": "normal",
+       "disk_id": "sdnb",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 7,
+       "status": "normal",
+       "disk_id": "sdna",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 3,
+       "status": "normal",
+       "disk_id": "sdmc",
+       "in_dev": null
+      }
+     ]
+    },
+    {
+     "pool_id": "reuse_2",
+     "deploy_path": "volume_2",
+     "raid": "/dev/md3",
+     "have": 12,
+     "need": 12,
+     "raid_status": null,
+     "disk_failure_number": 0,
+     "devices": [
+      {
+       "name": null,
+       "slot": 1,
+       "status": "normal",
+       "disk_id": "sdpc",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 0,
+       "status": "normal",
+       "disk_id": "sdpb",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 9,
+       "status": "normal",
+       "disk_id": "sdpa",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 8,
+       "status": "normal",
+       "disk_id": "sdoc",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 7,
+       "status": "normal",
+       "disk_id": "sdob",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 6,
+       "status": "normal",
+       "disk_id": "sdoa",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 5,
+       "status": "normal",
+       "disk_id": "sdnc",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 4,
+       "status": "normal",
+       "disk_id": "sdnb",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 3,
+       "status": "normal",
+       "disk_id": "sdna",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 2,
+       "status": "normal",
+       "disk_id": "sdmc",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 11,
+       "status": "normal",
+       "disk_id": "sdmb",
+       "in_dev": null
+      },
+      {
+       "name": null,
+       "slot": 10,
+       "status": "normal",
+       "disk_id": "sdma",
+       "in_dev": null
+      }
+     ]
+    }
+   ],
+   "disks": [
+    {
+     "id": "sda",
+     "slot": 1,
+     "status": "not_use",
+     "smart": "normal",
+     "size_tb": 3.0,
+     "used_by": "",
+     "temp": null
+    },
+    {
+     "id": "sdb",
+     "slot": 2,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 3.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdc",
+     "slot": 3,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 6.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdd",
+     "slot": 4,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 6.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sde",
+     "slot": 5,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdf",
+     "slot": 6,
+     "status": "system_crashed",
+     "smart": "normal",
+     "size_tb": 3.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdg",
+     "slot": 7,
+     "status": "system_crashed",
+     "smart": "normal",
+     "size_tb": 3.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdh",
+     "slot": 8,
+     "status": "system_crashed",
+     "smart": "normal",
+     "size_tb": 3.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdi",
+     "slot": 9,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdj",
+     "slot": 10,
+     "status": "system_crashed",
+     "smart": "normal",
+     "size_tb": 3.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdk",
+     "slot": 11,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 10.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdl",
+     "slot": 12,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_1",
+     "temp": null
+    },
+    {
+     "id": "sdma",
+     "slot": 1,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 3.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdmb",
+     "slot": 2,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 3.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdmc",
+     "slot": 3,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdna",
+     "slot": 4,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdnb",
+     "slot": 5,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdnc",
+     "slot": 6,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdoa",
+     "slot": 7,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdob",
+     "slot": 8,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdoc",
+     "slot": 9,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 3.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdpa",
+     "slot": 10,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdpb",
+     "slot": 11,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_2",
+     "temp": null
+    },
+    {
+     "id": "sdpc",
+     "slot": 12,
+     "status": "normal",
+     "smart": "normal",
+     "size_tb": 8.0,
+     "used_by": "reuse_2",
+     "temp": null
+    }
+   ],
+   "rebuilding_members": [],
+   "findings": [
+    {
+     "sev": "critical",
+     "msg": "volume_1 is degrade (80% full)"
+    },
+    {
+     "sev": "high",
+     "msg": "volume_1 scrubbingStatus=abnormal"
+    },
+    {
+     "sev": "medium",
+     "msg": "volume_2 data scrub at 55.14"
+    },
+    {
+     "sev": "critical",
+     "msg": "/dev/md2 has 11/12 members (pool reuse_1)"
+    },
+    {
+     "sev": "medium",
+     "msg": "sda (slot 1) not_use, SMART normal, REDACTED"
+    },
+    {
+     "sev": "low",
+     "msg": "sdf flagged system_crashed"
+    },
+    {
+     "sev": "low",
+     "msg": "sdg flagged system_crashed"
+    },
+    {
+     "sev": "low",
+     "msg": "sdh flagged system_crashed"
+    },
+    {
+     "sev": "low",
+     "msg": "sdj flagged system_crashed"
+    }
+   ]
+  }
+ ],
+ "history": [
+  {
+   "at": "2026-10-19T04:33:00-0500",
+   "prov": "prior-api",
+   "boxes": [
+    {
+     "id": "ds1",
+     "volumes": [
+      {
+       "id": "volume_2",
+       "progress_percent": "12.44"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": "2026-10-19T04:33:00-0500",
+   "prov": "prior-api",
+   "boxes": [
+    {
+     "id": "ds2",
+     "volumes": [
+      {
+       "id": "volume_2",
+       "progress_percent": "86.68"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": "2026-10-19T04:33:00-0500",
+   "prov": "prior-api",
+   "boxes": [
+    {
+     "id": "ds4",
+     "volumes": [
+      {
+       "id": "volume_2",
+       "progress_percent": "10.35"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": "2026-10-20T06:43:17-0500",
+   "prov": "measured",
+   "boxes": [
+    {
+     "id": "ds1",
+     "volumes": [
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_2",
+       "progress_percent": "16.47"
+      }
+     ]
+    },
+    {
+     "id": "ds2",
+     "volumes": [
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds3",
+     "volumes": [
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds4",
+     "volumes": [
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_2",
+       "progress_percent": "55.08"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": "2026-10-20T06:47:42-0500",
+   "prov": "measured",
+   "boxes": [
+    {
+     "id": "ds1",
+     "volumes": [
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_2",
+       "progress_percent": "16.48"
+      }
+     ]
+    },
+    {
+     "id": "ds2",
+     "volumes": [
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds3",
+     "volumes": [
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds4",
+     "volumes": [
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_2",
+       "progress_percent": "55.09"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": "2026-10-20T06:48:08-0500",
+   "prov": "measured",
+   "boxes": [
+    {
+     "id": "ds1",
+     "volumes": [
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_2",
+       "progress_percent": "16.48"
+      }
+     ]
+    },
+    {
+     "id": "ds2",
+     "volumes": [
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds3",
+     "volumes": [
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds4",
+     "volumes": [
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_2",
+       "progress_percent": "55.09"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": "2026-10-20T06:53:03-0500",
+   "prov": "measured",
+   "boxes": [
+    {
+     "id": "ds1",
+     "volumes": [
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_2",
+       "progress_percent": "16.49"
+      }
+     ]
+    },
+    {
+     "id": "ds2",
+     "volumes": [
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds3",
+     "volumes": [
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds4",
+     "volumes": [
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_2",
+       "progress_percent": "55.11"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": "2026-10-20T06:59:47-0500",
+   "prov": "measured",
+   "boxes": [
+    {
+     "id": "ds1",
+     "volumes": [
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_2",
+       "progress_percent": "16.51"
+      }
+     ]
+    },
+    {
+     "id": "ds2",
+     "volumes": [
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds3",
+     "volumes": [
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds4",
+     "volumes": [
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_2",
+       "progress_percent": "55.13"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": "2026-10-20T07:02:19-0500",
+   "prov": "measured",
+   "boxes": [
+    {
+     "id": "ds1",
+     "volumes": [
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_2",
+       "progress_percent": "16.52"
+      }
+     ]
+    },
+    {
+     "id": "ds2",
+     "volumes": [
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds3",
+     "volumes": [
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds4",
+     "volumes": [
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_2",
+       "progress_percent": "55.14"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": "2026-10-20T07:02:30-0500",
+   "prov": "measured",
+   "boxes": [
+    {
+     "id": "ds1",
+     "volumes": [
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_2",
+       "progress_percent": "16.52"
+      }
+     ]
+    },
+    {
+     "id": "ds2",
+     "volumes": [
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds3",
+     "volumes": [
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds4",
+     "volumes": [
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_2",
+       "progress_percent": "55.14"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": "2026-10-20T07:02:41-0500",
+   "prov": "measured",
+   "boxes": [
+    {
+     "id": "ds1",
+     "volumes": [
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_2",
+       "progress_percent": "16.52"
+      }
+     ]
+    },
+    {
+     "id": "ds2",
+     "volumes": [
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds3",
+     "volumes": [
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds4",
+     "volumes": [
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_2",
+       "progress_percent": "55.14"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
