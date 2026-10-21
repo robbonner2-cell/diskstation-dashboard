@@ -1,12 +1,12 @@
 {
  "schema": "ds-public/1",
- "taken": "2026-10-20T22:18:00-0500",
- "elapsed_s": 34.4,
+ "taken": "2026-10-20T22:37:37-0500",
+ "elapsed_s": 11.5,
  "boxes": [
   {
    "id": "ds1",
    "model": "DS2413+",
-   "uptime": "81:45:58",
+   "uptime": "82:5:58",
    "temp": 37,
    "disk_count": 24,
    "volumes": [
@@ -29,7 +29,7 @@
      "tb": 79.6,
      "free_tb": 33.3,
      "scrub": "kernel_running",
-     "progress_percent": "18.87",
+     "progress_percent": "18.92",
      "progress_step": "data_scrubbing",
      "device_type": "shr_with_2_disk_protect",
      "disk_failure_number": 0
@@ -516,14 +516,14 @@
    "findings": [
     {
      "sev": "medium",
-     "msg": "volume_2 data scrub at 18.87"
+     "msg": "volume_2 data scrub at 18.92"
     }
    ]
   },
   {
    "id": "ds2",
    "model": "DS2411+",
-   "uptime": "81:46:27",
+   "uptime": "82:6:27",
    "temp": 40,
    "disk_count": 23,
    "volumes": [
@@ -970,8 +970,8 @@
   {
    "id": "ds3",
    "model": "DS2413+",
-   "uptime": "129:50:48",
-   "temp": 42,
+   "uptime": "130:10:48",
+   "temp": 43,
    "disk_count": 24,
    "volumes": [
     {
@@ -1561,7 +1561,7 @@
   {
    "id": "ds4",
    "model": "DS2413+",
-   "uptime": "81:46:15",
+   "uptime": "82:6:15",
    "temp": 45,
    "disk_count": 24,
    "volumes": [
@@ -1584,7 +1584,7 @@
      "tb": 64.7,
      "free_tb": 23.6,
      "scrub": "kernel_running",
-     "progress_percent": "58.03",
+     "progress_percent": "58.09",
      "progress_step": "data_scrubbing",
      "device_type": "shr_with_2_disk_protect",
      "disk_failure_number": 0
@@ -2171,7 +2171,7 @@
     },
     {
      "sev": "medium",
-     "msg": "volume_2 data scrub at 58.03"
+     "msg": "volume_2 data scrub at 58.09"
     },
     {
      "sev": "critical",
@@ -5431,6 +5431,64 @@
       {
        "id": "volume_2",
        "progress_percent": "58.03"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": "2026-10-20T22:37:37-0500",
+   "prov": "measured",
+   "boxes": [
+    {
+     "id": "ds1",
+     "volumes": [
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_2",
+       "progress_percent": "18.92"
+      }
+     ]
+    },
+    {
+     "id": "ds2",
+     "volumes": [
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds3",
+     "volumes": [
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds4",
+     "volumes": [
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_2",
+       "progress_percent": "58.09"
       }
      ]
     }
