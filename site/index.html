@@ -118,15 +118,15 @@
   footer { margin-top:16px; color:var(--muted-foreground, #8b949e); font-size:11px; }
 </style></head><body>
   <h1>NAS fleet &mdash; storage health dashboard</h1>
-  <div class="sub">Sanitized read-only API snapshot &middot; 2026-10-22 01:36 &middot;
-    schema <code>ds-public/1</code> &middot; 18.1s collection</div>
+  <div class="sub">Sanitized read-only API snapshot &middot; 2026-10-22 01:56 &middot;
+    schema <code>ds-public/1</code> &middot; 10.6s collection</div>
 
   <div class="kpis">
     <div class="kpi"><span class="k-l">Boxes online</span><span class="k-v">4 / 4</span></div>
     <div class="kpi"><span class="k-l">Raw capacity</span><span class="k-v">617 TB</span><span class="k-s">480 TB usable</span></div>
     <div class="kpi"><span class="k-l">Disks</span><span class="k-v">95</span></div>
     <div class="kpi"><span class="k-l">Rebuilding now</span><span class="k-v ok">0</span></div>
-    <div class="kpi"><span class="k-l">Background tasks</span><span class="k-v">1</span></div>
+    <div class="kpi"><span class="k-l">Background tasks</span><span class="k-v">0</span></div>
     <div class="kpi"><span class="k-l">Degraded volumes</span><span class="k-v crit">2</span></div></div>
 
   <div class="panel">
@@ -140,21 +140,7 @@
       volume_1 status is <code>degrade</code>.</span>
       <span class="done-spark"><svg class="spark" width="210" height="34" viewBox="0 0 210 34"><polyline points="0.0,32.0 105.0,10.7 210.0,2.0" fill="none" stroke="#3fb950" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" opacity=".85"/><circle cx="0.0" cy="32.0" r="2.4" fill="var(--card, #161b22)" stroke="#3fb950" stroke-width="1.3" stroke-dasharray="2 1.4"/><title>prose figure - unverified</title><circle cx="105.0" cy="10.7" r="2.4" fill="var(--card, #161b22)" stroke="#3fb950" stroke-width="1.4"/><title>live API reading from an earlier session (2026-10-19 04:33) - no standalone json artifact</title><circle cx="210.0" cy="2.0" r="1.9" fill="#3fb950"/></svg><span class="done-cap">md3 rebuild 54% &rarr; 86.7% &rarr; complete</span></span>
     </div>
-    <div class="tasks">
-        <div class="task scrub">
-          <div class="task-head">
-            <span class="badge scrub">DATA SCRUB</span>
-            <span class="task-box">ds4 &middot; volume_2</span>
-            <span class="task-pct">63.07%</span>
-          </div>
-          <div class="bar"><div class="bar-fill" style="width:63.07%;background:#bc8cff"></div></div>
-          <div class="task-foot">
-            <span class="spark-wrap"><svg class="spark" width="118" height="26" viewBox="0 0 118 26"><polyline points="0.0,24.0 0.9,5.3 1.8,5.3 2.7,5.3 3.6,5.3 4.5,5.3 5.4,5.3 6.3,5.2 7.2,5.2 8.1,5.2 9.0,5.2 9.9,5.2 10.8,5.1 11.7,5.1 12.6,5.1 13.5,5.1 14.4,5.0 15.3,5.0 16.2,5.0 17.1,4.9 18.0,4.9 18.9,4.9 19.8,4.9 20.7,4.8 21.6,4.8 22.5,4.8 23.4,4.7 24.3,4.7 25.2,4.6 26.1,4.6 27.0,4.6 27.9,4.6 28.8,4.6 29.7,4.6 30.6,4.6 31.5,4.5 32.4,4.5 33.3,4.5 34.2,4.5 35.1,4.4 36.0,4.4 36.9,4.4 37.8,4.3 38.7,4.3 39.6,4.3 40.5,4.3 41.4,4.2 42.3,4.2 43.2,4.2 44.1,4.2 45.0,4.1 45.9,4.1 46.8,4.1 47.7,4.0 48.6,4.0 49.5,4.0 50.4,4.0 51.3,3.9 52.2,3.9 53.1,3.9 54.0,3.9 54.9,3.8 55.8,3.8 56.7,3.8 57.6,3.8 58.5,3.7 59.5,3.7 60.4,3.7 61.3,3.6 62.2,3.6 63.1,3.6 64.0,3.6 64.9,3.5 65.8,3.5 66.7,3.5 67.6,3.5 68.5,3.4 69.4,3.4 70.3,3.4 71.2,3.3 72.1,3.3 73.0,3.3 73.9,3.3 74.8,3.2 75.7,3.2 76.6,3.2 77.5,3.2 78.4,3.1 79.3,3.1 80.2,3.1 81.1,3.1 82.0,3.0 82.9,3.0 83.8,3.0 84.7,2.9 85.6,2.9 86.5,2.9 87.4,2.9 88.3,2.8 89.2,2.8 90.1,2.8 91.0,2.8 91.9,2.7 92.8,2.7 93.7,2.7 94.6,2.7 95.5,2.6 96.4,2.6 97.3,2.6 98.2,2.6 99.1,2.5 100.0,2.5 100.9,2.5 101.8,2.5 102.7,2.4 103.6,2.4 104.5,2.4 105.4,2.4 106.3,2.3 107.2,2.3 108.1,2.3 109.0,2.3 109.9,2.2 110.8,2.2 111.7,2.2 112.6,2.2 113.5,2.1 114.4,2.1 115.3,2.1 116.2,2.1 117.1,2.0 118.0,2.0" fill="none" stroke="#bc8cff" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" opacity=".85"/><circle cx="0.0" cy="24.0" r="2.4" fill="var(--card, #161b22)" stroke="#bc8cff" stroke-width="1.4"/><title>live API reading from an earlier session (2026-10-19 04:33) - no standalone json artifact</title><circle cx="0.9" cy="5.3" r="1.9" fill="#bc8cff"/><circle cx="1.8" cy="5.3" r="1.9" fill="#bc8cff"/><circle cx="2.7" cy="5.3" r="1.9" fill="#bc8cff"/><circle cx="3.6" cy="5.3" r="1.9" fill="#bc8cff"/><circle cx="4.5" cy="5.3" r="1.9" fill="#bc8cff"/><circle cx="5.4" cy="5.3" r="1.9" fill="#bc8cff"/><circle cx="6.3" cy="5.2" r="1.9" fill="#bc8cff"/><circle cx="7.2" cy="5.2" r="1.9" fill="#bc8cff"/><circle cx="8.1" cy="5.2" r="1.9" fill="#bc8cff"/><circle cx="9.0" cy="5.2" r="1.9" fill="#bc8cff"/><circle cx="9.9" cy="5.2" r="1.9" fill="#bc8cff"/><circle cx="10.8" cy="5.1" r="1.9" fill="#bc8cff"/><circle cx="11.7" cy="5.1" r="1.9" fill="#bc8cff"/><circle cx="12.6" cy="5.1" r="1.9" fill="#bc8cff"/><circle cx="13.5" cy="5.1" r="1.9" fill="#bc8cff"/><circle cx="14.4" cy="5.0" r="1.9" fill="#bc8cff"/><circle cx="15.3" cy="5.0" r="1.9" fill="#bc8cff"/><circle cx="16.2" cy="5.0" r="1.9" fill="#bc8cff"/><circle cx="17.1" cy="4.9" r="1.9" fill="#bc8cff"/><circle cx="18.0" cy="4.9" r="1.9" fill="#bc8cff"/><circle cx="18.9" cy="4.9" r="1.9" fill="#bc8cff"/><circle cx="19.8" cy="4.9" r="1.9" fill="#bc8cff"/><circle cx="20.7" cy="4.8" r="1.9" fill="#bc8cff"/><circle cx="21.6" cy="4.8" r="1.9" fill="#bc8cff"/><circle cx="22.5" cy="4.8" r="1.9" fill="#bc8cff"/><circle cx="23.4" cy="4.7" r="1.9" fill="#bc8cff"/><circle cx="24.3" cy="4.7" r="1.9" fill="#bc8cff"/><circle cx="25.2" cy="4.6" r="1.9" fill="#bc8cff"/><circle cx="26.1" cy="4.6" r="1.9" fill="#bc8cff"/><circle cx="27.0" cy="4.6" r="1.9" fill="#bc8cff"/><circle cx="27.9" cy="4.6" r="1.9" fill="#bc8cff"/><circle cx="28.8" cy="4.6" r="1.9" fill="#bc8cff"/><circle cx="29.7" cy="4.6" r="1.9" fill="#bc8cff"/><circle cx="30.6" cy="4.6" r="1.9" fill="#bc8cff"/><circle cx="31.5" cy="4.5" r="1.9" fill="#bc8cff"/><circle cx="32.4" cy="4.5" r="1.9" fill="#bc8cff"/><circle cx="33.3" cy="4.5" r="1.9" fill="#bc8cff"/><circle cx="34.2" cy="4.5" r="1.9" fill="#bc8cff"/><circle cx="35.1" cy="4.4" r="1.9" fill="#bc8cff"/><circle cx="36.0" cy="4.4" r="1.9" fill="#bc8cff"/><circle cx="36.9" cy="4.4" r="1.9" fill="#bc8cff"/><circle cx="37.8" cy="4.3" r="1.9" fill="#bc8cff"/><circle cx="38.7" cy="4.3" r="1.9" fill="#bc8cff"/><circle cx="39.6" cy="4.3" r="1.9" fill="#bc8cff"/><circle cx="40.5" cy="4.3" r="1.9" fill="#bc8cff"/><circle cx="41.4" cy="4.2" r="1.9" fill="#bc8cff"/><circle cx="42.3" cy="4.2" r="1.9" fill="#bc8cff"/><circle cx="43.2" cy="4.2" r="1.9" fill="#bc8cff"/><circle cx="44.1" cy="4.2" r="1.9" fill="#bc8cff"/><circle cx="45.0" cy="4.1" r="1.9" fill="#bc8cff"/><circle cx="45.9" cy="4.1" r="1.9" fill="#bc8cff"/><circle cx="46.8" cy="4.1" r="1.9" fill="#bc8cff"/><circle cx="47.7" cy="4.0" r="1.9" fill="#bc8cff"/><circle cx="48.6" cy="4.0" r="1.9" fill="#bc8cff"/><circle cx="49.5" cy="4.0" r="1.9" fill="#bc8cff"/><circle cx="50.4" cy="4.0" r="1.9" fill="#bc8cff"/><circle cx="51.3" cy="3.9" r="1.9" fill="#bc8cff"/><circle cx="52.2" cy="3.9" r="1.9" fill="#bc8cff"/><circle cx="53.1" cy="3.9" r="1.9" fill="#bc8cff"/><circle cx="54.0" cy="3.9" r="1.9" fill="#bc8cff"/><circle cx="54.9" cy="3.8" r="1.9" fill="#bc8cff"/><circle cx="55.8" cy="3.8" r="1.9" fill="#bc8cff"/><circle cx="56.7" cy="3.8" r="1.9" fill="#bc8cff"/><circle cx="57.6" cy="3.8" r="1.9" fill="#bc8cff"/><circle cx="58.5" cy="3.7" r="1.9" fill="#bc8cff"/><circle cx="59.5" cy="3.7" r="1.9" fill="#bc8cff"/><circle cx="60.4" cy="3.7" r="1.9" fill="#bc8cff"/><circle cx="61.3" cy="3.6" r="1.9" fill="#bc8cff"/><circle cx="62.2" cy="3.6" r="1.9" fill="#bc8cff"/><circle cx="63.1" cy="3.6" r="1.9" fill="#bc8cff"/><circle cx="64.0" cy="3.6" r="1.9" fill="#bc8cff"/><circle cx="64.9" cy="3.5" r="1.9" fill="#bc8cff"/><circle cx="65.8" cy="3.5" r="1.9" fill="#bc8cff"/><circle cx="66.7" cy="3.5" r="1.9" fill="#bc8cff"/><circle cx="67.6" cy="3.5" r="1.9" fill="#bc8cff"/><circle cx="68.5" cy="3.4" r="1.9" fill="#bc8cff"/><circle cx="69.4" cy="3.4" r="1.9" fill="#bc8cff"/><circle cx="70.3" cy="3.4" r="1.9" fill="#bc8cff"/><circle cx="71.2" cy="3.3" r="1.9" fill="#bc8cff"/><circle cx="72.1" cy="3.3" r="1.9" fill="#bc8cff"/><circle cx="73.0" cy="3.3" r="1.9" fill="#bc8cff"/><circle cx="73.9" cy="3.3" r="1.9" fill="#bc8cff"/><circle cx="74.8" cy="3.2" r="1.9" fill="#bc8cff"/><circle cx="75.7" cy="3.2" r="1.9" fill="#bc8cff"/><circle cx="76.6" cy="3.2" r="1.9" fill="#bc8cff"/><circle cx="77.5" cy="3.2" r="1.9" fill="#bc8cff"/><circle cx="78.4" cy="3.1" r="1.9" fill="#bc8cff"/><circle cx="79.3" cy="3.1" r="1.9" fill="#bc8cff"/><circle cx="80.2" cy="3.1" r="1.9" fill="#bc8cff"/><circle cx="81.1" cy="3.1" r="1.9" fill="#bc8cff"/><circle cx="82.0" cy="3.0" r="1.9" fill="#bc8cff"/><circle cx="82.9" cy="3.0" r="1.9" fill="#bc8cff"/><circle cx="83.8" cy="3.0" r="1.9" fill="#bc8cff"/><circle cx="84.7" cy="2.9" r="1.9" fill="#bc8cff"/><circle cx="85.6" cy="2.9" r="1.9" fill="#bc8cff"/><circle cx="86.5" cy="2.9" r="1.9" fill="#bc8cff"/><circle cx="87.4" cy="2.9" r="1.9" fill="#bc8cff"/><circle cx="88.3" cy="2.8" r="1.9" fill="#bc8cff"/><circle cx="89.2" cy="2.8" r="1.9" fill="#bc8cff"/><circle cx="90.1" cy="2.8" r="1.9" fill="#bc8cff"/><circle cx="91.0" cy="2.8" r="1.9" fill="#bc8cff"/><circle cx="91.9" cy="2.7" r="1.9" fill="#bc8cff"/><circle cx="92.8" cy="2.7" r="1.9" fill="#bc8cff"/><circle cx="93.7" cy="2.7" r="1.9" fill="#bc8cff"/><circle cx="94.6" cy="2.7" r="1.9" fill="#bc8cff"/><circle cx="95.5" cy="2.6" r="1.9" fill="#bc8cff"/><circle cx="96.4" cy="2.6" r="1.9" fill="#bc8cff"/><circle cx="97.3" cy="2.6" r="1.9" fill="#bc8cff"/><circle cx="98.2" cy="2.6" r="1.9" fill="#bc8cff"/><circle cx="99.1" cy="2.5" r="1.9" fill="#bc8cff"/><circle cx="100.0" cy="2.5" r="1.9" fill="#bc8cff"/><circle cx="100.9" cy="2.5" r="1.9" fill="#bc8cff"/><circle cx="101.8" cy="2.5" r="1.9" fill="#bc8cff"/><circle cx="102.7" cy="2.4" r="1.9" fill="#bc8cff"/><circle cx="103.6" cy="2.4" r="1.9" fill="#bc8cff"/><circle cx="104.5" cy="2.4" r="1.9" fill="#bc8cff"/><circle cx="105.4" cy="2.4" r="1.9" fill="#bc8cff"/><circle cx="106.3" cy="2.3" r="1.9" fill="#bc8cff"/><circle cx="107.2" cy="2.3" r="1.9" fill="#bc8cff"/><circle cx="108.1" cy="2.3" r="1.9" fill="#bc8cff"/><circle cx="109.0" cy="2.3" r="1.9" fill="#bc8cff"/><circle cx="109.9" cy="2.2" r="1.9" fill="#bc8cff"/><circle cx="110.8" cy="2.2" r="1.9" fill="#bc8cff"/><circle cx="111.7" cy="2.2" r="1.9" fill="#bc8cff"/><circle cx="112.6" cy="2.2" r="1.9" fill="#bc8cff"/><circle cx="113.5" cy="2.1" r="1.9" fill="#bc8cff"/><circle cx="114.4" cy="2.1" r="1.9" fill="#bc8cff"/><circle cx="115.3" cy="2.1" r="1.9" fill="#bc8cff"/><circle cx="116.2" cy="2.1" r="1.9" fill="#bc8cff"/><circle cx="117.1" cy="2.0" r="1.9" fill="#bc8cff"/><circle cx="118.0" cy="2.0" r="1.9" fill="#bc8cff"/></svg></span>
-            <span class="eta-wrap"><span class="eta">194h left</span><span class="rate">0.19 pts/h &middot; live rate</span></span>
-          </div>
-          <div class="warnline">rate unstable &mdash; live 0.19 pts/h vs 69h avg 0.76 pts/h; ETA uses the live rate</div><div class="noteline">baseline 2026-10-19 04:33 is a live API reading taken in an earlier session &mdash; a real measurement, but from a different run, so the long-window average spans sessions</div>
-          <div class="task-foot2">131 readings &middot; as of 2026-10-22 01:36 &middot; 2026-10-20 06:43 &rarr; 2026-10-22 01:36</div>
-        </div></div>
+    <div class="mut small">No background task running on any box.</div>
   </div>
 
   <div class="boxes">
@@ -164,7 +150,7 @@
           <h2>ds1</h2>
           <div class="bc-meta">
             <span>DS2413+</span>
-            <span>up 109:5:1</span>
+            <span>up 109:25:13</span>
             <span class="t-ok">39&deg;C</span>
           </div>
         </div>
@@ -241,7 +227,7 @@
           <h2>ds2</h2>
           <div class="bc-meta">
             <span>DS2411+</span>
-            <span>up 109:5:26</span>
+            <span>up 109:25:37</span>
             <span class="t-warn">41&deg;C</span>
           </div>
         </div>
@@ -316,7 +302,7 @@
           <h2>ds3</h2>
           <div class="bc-meta">
             <span>DS2413+</span>
-            <span>up 157:9:48</span>
+            <span>up 157:29:59</span>
             <span class="t-warn">44&deg;C</span>
           </div>
         </div>
@@ -400,7 +386,7 @@
           <h2>ds4</h2>
           <div class="bc-meta">
             <span>DS2413+</span>
-            <span>up 109:5:16</span>
+            <span>up 109:25:26</span>
             <span class="t-crit">47&deg;C</span>
           </div>
         </div>
@@ -428,16 +414,16 @@
         <div class="vol">
           <div class="vol-top">
             <span class="vname">volume_2</span>
-            <span class="pill scrub">background</span>
+            <span class="pill ok">normal</span>
             <span class="vfill">64% full</span>
           </div>
           <div class="bar"><div class="bar-fill thin" style="width:64.00%;background:#3fb950"></div></div>
           <div class="vol-meta">
             <span>64.7 TB &middot; 23.6 TB free</span>
-            <span>scrub: kernel_running</span>
+            <span>scrub: no_action</span>
             
           </div>
-          <div class="vprog"><span class="mini-label">DATA SCRUB</span><div class="bar"><div class="bar-fill" style="width:63.07%;background:#bc8cff"></div></div><span class="mini-pct">63.07%</span></div><div class="vrate">live 0.19 pts/h &middot; ETA ~194h (unstable)</div>
+          
         </div>
           <h3>Storage pools &mdash; members</h3>
           
@@ -506,7 +492,7 @@
           <span class="dsmart">SMART normal</span>
         </div>
           <h3>Findings</h3>
-          <ul class="findings crit"><li>volume_1 is degrade (80% full)</li><li>/dev/md2 has 11/12 members (pool reuse_1)</li></ul><ul class="findings high"><li>volume_1 scrubbingStatus=abnormal</li></ul><ul class="findings medium"><li>volume_2 data scrub at 63.07</li><li>sda (slot 1) not_use, SMART normal, REDACTED</li></ul><ul class="findings low"><li>sdf flagged system_crashed</li><li>sdg flagged system_crashed</li><li>sdh flagged system_crashed</li><li>sdj flagged system_crashed</li></ul>
+          <ul class="findings crit"><li>volume_1 is degrade (80% full)</li><li>/dev/md2 has 11/12 members (pool reuse_1)</li></ul><ul class="findings high"><li>volume_1 scrubbingStatus=abnormal</li></ul><ul class="findings medium"><li>sda (slot 1) not_use, SMART normal, REDACTED</li></ul><ul class="findings low"><li>sdf flagged system_crashed</li><li>sdg flagged system_crashed</li><li>sdh flagged system_crashed</li><li>sdj flagged system_crashed</li></ul>
         </div>
       </div>
     </section></div>
