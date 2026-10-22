@@ -1,12 +1,12 @@
 {
  "schema": "ds-public/1",
- "taken": "2026-10-21T22:32:35-0500",
- "elapsed_s": 9.8,
+ "taken": "2026-10-21T22:53:43-0500",
+ "elapsed_s": 17.9,
  "boxes": [
   {
    "id": "ds1",
    "model": "DS2413+",
-   "uptime": "106:1:1",
+   "uptime": "106:22:1",
    "temp": 39,
    "disk_count": 24,
    "volumes": [
@@ -518,7 +518,7 @@
   {
    "id": "ds2",
    "model": "DS2411+",
-   "uptime": "106:1:26",
+   "uptime": "106:22:26",
    "temp": 41,
    "disk_count": 23,
    "volumes": [
@@ -965,7 +965,7 @@
   {
    "id": "ds3",
    "model": "DS2413+",
-   "uptime": "154:5:49",
+   "uptime": "154:26:48",
    "temp": 43,
    "disk_count": 24,
    "volumes": [
@@ -1556,7 +1556,7 @@
   {
    "id": "ds4",
    "model": "DS2413+",
-   "uptime": "106:1:16",
+   "uptime": "106:22:16",
    "temp": 47,
    "disk_count": 24,
    "volumes": [
@@ -1579,7 +1579,7 @@
      "tb": 64.7,
      "free_tb": 23.6,
      "scrub": "kernel_running",
-     "progress_percent": "62.52",
+     "progress_percent": "62.58",
      "progress_step": "data_scrubbing",
      "device_type": "shr_with_2_disk_protect",
      "disk_failure_number": 0
@@ -2166,7 +2166,7 @@
     },
     {
      "sev": "medium",
-     "msg": "volume_2 data scrub at 62.52"
+     "msg": "volume_2 data scrub at 62.58"
     },
     {
      "sev": "critical",
@@ -9544,6 +9544,64 @@
       {
        "id": "volume_2",
        "progress_percent": "62.52"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": "2026-10-21T22:53:43-0500",
+   "prov": "measured",
+   "boxes": [
+    {
+     "id": "ds1",
+     "volumes": [
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds2",
+     "volumes": [
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds3",
+     "volumes": [
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds4",
+     "volumes": [
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_2",
+       "progress_percent": "62.58"
       }
      ]
     }
