@@ -1,12 +1,12 @@
 {
  "schema": "ds-public/1",
- "taken": "2026-10-23T02:51:17-0500",
- "elapsed_s": 36.9,
+ "taken": "2026-10-23T03:10:51-0500",
+ "elapsed_s": 9.6,
  "boxes": [
   {
    "id": "ds1",
    "model": "DS2413+",
-   "uptime": "134:19:17",
+   "uptime": "134:39:19",
    "temp": 39,
    "disk_count": 24,
    "volumes": [
@@ -518,7 +518,7 @@
   {
    "id": "ds2",
    "model": "DS2411+",
-   "uptime": "134:19:40",
+   "uptime": "134:39:42",
    "temp": 41,
    "disk_count": 23,
    "volumes": [
@@ -965,7 +965,7 @@
   {
    "id": "ds3",
    "model": "DS2413+",
-   "uptime": "182:24:4",
+   "uptime": "182:44:5",
    "temp": 45,
    "disk_count": 24,
    "volumes": [
@@ -1556,7 +1556,7 @@
   {
    "id": "ds4",
    "model": "DS2413+",
-   "uptime": "134:19:31",
+   "uptime": "134:39:32",
    "temp": 46,
    "disk_count": 24,
    "volumes": [
@@ -2192,21 +2192,6 @@
   }
  ],
  "history": [
-  {
-   "at": "2026-10-19T04:33:00-0500",
-   "prov": "prior-api",
-   "boxes": [
-    {
-     "id": "ds4",
-     "volumes": [
-      {
-       "id": "volume_2",
-       "progress_percent": "10.35"
-      }
-     ]
-    }
-   ]
-  },
   {
    "at": "2026-10-20T06:43:17-0500",
    "prov": "measured",
@@ -13693,6 +13678,64 @@
   },
   {
    "at": "2026-10-23T02:51:17-0500",
+   "prov": "measured",
+   "boxes": [
+    {
+     "id": "ds1",
+     "volumes": [
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds2",
+     "volumes": [
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds3",
+     "volumes": [
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds4",
+     "volumes": [
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": "2026-10-23T03:10:51-0500",
    "prov": "measured",
    "boxes": [
     {
