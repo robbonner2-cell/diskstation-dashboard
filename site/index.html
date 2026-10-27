@@ -118,13 +118,13 @@
   footer { margin-top:16px; color:var(--muted-foreground, #8b949e); font-size:11px; }
 </style></head><body>
   <h1>NAS fleet &mdash; storage health dashboard</h1>
-  <div class="sub">Sanitized read-only API snapshot &middot; 2026-10-27 12:57 &middot;
-    schema <code>ds-public/1</code> &middot; 18.2s collection</div>
+  <div class="sub">Sanitized read-only API snapshot &middot; 2026-10-27 13:17 &middot;
+    schema <code>ds-public/1</code> &middot; 38.7s collection</div>
 
   <div class="kpis">
     <div class="kpi"><span class="k-l">Boxes online</span><span class="k-v">4 / 4</span></div>
-    <div class="kpi"><span class="k-l">Raw capacity</span><span class="k-v">617 TB</span><span class="k-s">480 TB usable</span></div>
-    <div class="kpi"><span class="k-l">Disks</span><span class="k-v">95</span></div>
+    <div class="kpi"><span class="k-l">Raw capacity</span><span class="k-v">614 TB</span><span class="k-s">480 TB usable</span></div>
+    <div class="kpi"><span class="k-l">Disks</span><span class="k-v">94</span></div>
     <div class="kpi"><span class="k-l">Rebuilding now</span><span class="k-v ok">0</span></div>
     <div class="kpi"><span class="k-l">Background tasks</span><span class="k-v">0</span></div>
     <div class="kpi"><span class="k-l">Degraded volumes</span><span class="k-v crit">2</span></div></div>
@@ -150,7 +150,7 @@
           <h2>ds1</h2>
           <div class="bc-meta">
             <span>DS2413+</span>
-            <span>up 240:26:0</span>
+            <span>up 240:46:3</span>
             <span class="t-ok">36&deg;C</span>
           </div>
         </div>
@@ -227,7 +227,7 @@
           <h2>ds2</h2>
           <div class="bc-meta">
             <span>DS2411+</span>
-            <span>up 240:26:11</span>
+            <span>up 240:46:15</span>
             <span class="t-ok">38&deg;C</span>
           </div>
         </div>
@@ -284,15 +284,10 @@
         </div>
         </div>
         <div class="bc-col">
-          <h3>Disks needing attention <span class="mut">(23 total)</span></h3>
-          
-        <div class="diskrow">
-          <span class="pill crit">not_use</span>
-          <span class="dname">sdpa &middot; bay 10</span>
-          <span class="dsmart">SMART failing</span>
-        </div>
+          <h3>Disks needing attention <span class="mut">(22 total)</span></h3>
+          <div class="mut small">none &mdash; all members normal</div>
           <h3>Findings</h3>
-          <ul class="findings crit"><li>volume_1 is degrade (38% full)</li><li>/dev/md2 has 10/12 members (pool reuse_1)</li></ul><ul class="findings high"><li>volume_1 scrubbingStatus=abnormal</li><li>sdpa (slot 10) not_use, SMART failing, REDACTED</li><li>sdpa DSM smart_status=failing — confirm on-box with smartctl before condemning</li></ul><ul class="findings low"><li>volume_2 scrub flagged kernel_running but progress.step=none, percent=-1 (no progress exposed)</li></ul>
+          <ul class="findings crit"><li>volume_1 is degrade (38% full)</li><li>/dev/md2 has 10/12 members (pool reuse_1)</li></ul><ul class="findings high"><li>volume_1 scrubbingStatus=abnormal</li></ul><ul class="findings low"><li>volume_2 scrub flagged kernel_running but progress.step=none, percent=-1 (no progress exposed)</li></ul>
         </div>
       </div>
     </section>
@@ -302,7 +297,7 @@
           <h2>ds3</h2>
           <div class="bc-meta">
             <span>DS2413+</span>
-            <span>up 288:30:40</span>
+            <span>up 288:50:43</span>
             <span class="t-warn">41&deg;C</span>
           </div>
         </div>
@@ -386,7 +381,7 @@
           <h2>ds4</h2>
           <div class="bc-meta">
             <span>DS2413+</span>
-            <span>up 240:26:7</span>
+            <span>up 240:46:10</span>
             <span class="t-warn">43&deg;C</span>
           </div>
         </div>
