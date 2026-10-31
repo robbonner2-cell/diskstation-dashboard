@@ -1,8 +1,8 @@
 {
-  "rendered_at": "2026-10-31 15:06",
-  "payload_taken": "2026-10-31 15:06",
+  "rendered_at": "2026-10-31 16:07",
+  "payload_taken": "2026-10-31 16:07",
   "boxes_count": 4,
-  "total_raw_tb": 626.0,
+  "total_raw_tb": 623.0,
   "total_spindles": 96,
   "active_task_count": 0,
   "degraded_volume_count": 3,
