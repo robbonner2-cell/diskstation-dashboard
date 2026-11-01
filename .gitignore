@@ -1,0 +1,13 @@
+# secrets
+.env
+auth.json
+*.key
+*.pem
+
+# python
+.venv/
+__pycache__/
+*.pyc
+
+# node
+node_modules/
