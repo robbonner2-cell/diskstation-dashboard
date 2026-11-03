@@ -118,16 +118,16 @@
   footer { margin-top:16px; color:var(--muted-foreground, #8b949e); font-size:11px; }
 </style></head><body>
   <h1>NAS fleet &mdash; storage health dashboard</h1>
-  <div class="sub">Sanitized read-only API snapshot &middot; 2026-11-03 03:01 &middot;
-    schema <code>ds-public/1</code> &middot; 36.5s collection</div>
+  <div class="sub">Sanitized read-only API snapshot &middot; 2026-11-03 03:21 &middot;
+    schema <code>ds-public/1</code> &middot; 10.6s collection</div>
 
   <div class="kpis">
     <div class="kpi"><span class="k-l">Boxes online</span><span class="k-v">4 / 4</span></div>
     <div class="kpi"><span class="k-l">Raw capacity</span><span class="k-v">623 TB</span><span class="k-s">480 TB usable</span></div>
     <div class="kpi"><span class="k-l">Disks</span><span class="k-v">96</span></div>
-    <div class="kpi"><span class="k-l">Rebuilding now</span><span class="k-v ok">0</span></div>
-    <div class="kpi"><span class="k-l">Background tasks</span><span class="k-v">0</span></div>
-    <div class="kpi"><span class="k-l">Degraded volumes</span><span class="k-v crit">2</span></div></div>
+    <div class="kpi"><span class="k-l">Rebuilding now</span><span class="k-v crit">1</span></div>
+    <div class="kpi"><span class="k-l">Background tasks</span><span class="k-v">1</span></div>
+    <div class="kpi"><span class="k-l">Degraded volumes</span><span class="k-v crit">1</span></div></div>
 
   <div class="panel">
     <h3>Rebuild &amp; scrub progress</h3>
@@ -138,9 +138,23 @@
       md3 is <b>11/12</b> members (<b>0</b> flagged rebuild, <b>0</b> non-normal)
       and volume_2 is <code>degrade</code>. Remaining ds2 fault is volume_1 / md2 at <b>12/12</b>;
       volume_1 status is <code>normal</code>.</span>
-      <span class="done-spark"><svg class="spark" width="210" height="34" viewBox="0 0 210 34"><polyline points="0.0,14.9 9.1,2.0 18.3,32.0 27.4,31.9 36.5,31.9 45.7,31.8 54.8,31.8 63.9,31.7 73.0,31.7 82.2,31.6 91.3,31.6 100.4,31.5 109.6,31.5 118.7,31.4 127.8,31.4 137.0,31.3 146.1,31.3 155.2,31.2 164.3,31.2 173.5,31.1 182.6,31.1 191.7,31.0 200.9,31.0 210.0,30.9" fill="none" stroke="#3fb950" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" opacity=".85"/><circle cx="0.0" cy="14.9" r="2.4" fill="var(--card, #161b22)" stroke="#3fb950" stroke-width="1.3" stroke-dasharray="2 1.4"/><title>prose figure - unverified</title><circle cx="9.1" cy="2.0" r="2.4" fill="var(--card, #161b22)" stroke="#3fb950" stroke-width="1.4"/><title>live API reading from an earlier session (2026-10-19 04:33) - no standalone json artifact</title><circle cx="18.3" cy="32.0" r="1.9" fill="#3fb950"/><circle cx="27.4" cy="31.9" r="1.9" fill="#3fb950"/><circle cx="36.5" cy="31.9" r="1.9" fill="#3fb950"/><circle cx="45.7" cy="31.8" r="1.9" fill="#3fb950"/><circle cx="54.8" cy="31.8" r="1.9" fill="#3fb950"/><circle cx="63.9" cy="31.7" r="1.9" fill="#3fb950"/><circle cx="73.0" cy="31.7" r="1.9" fill="#3fb950"/><circle cx="82.2" cy="31.6" r="1.9" fill="#3fb950"/><circle cx="91.3" cy="31.6" r="1.9" fill="#3fb950"/><circle cx="100.4" cy="31.5" r="1.9" fill="#3fb950"/><circle cx="109.6" cy="31.5" r="1.9" fill="#3fb950"/><circle cx="118.7" cy="31.4" r="1.9" fill="#3fb950"/><circle cx="127.8" cy="31.4" r="1.9" fill="#3fb950"/><circle cx="137.0" cy="31.3" r="1.9" fill="#3fb950"/><circle cx="146.1" cy="31.3" r="1.9" fill="#3fb950"/><circle cx="155.2" cy="31.2" r="1.9" fill="#3fb950"/><circle cx="164.3" cy="31.2" r="1.9" fill="#3fb950"/><circle cx="173.5" cy="31.1" r="1.9" fill="#3fb950"/><circle cx="182.6" cy="31.1" r="1.9" fill="#3fb950"/><circle cx="191.7" cy="31.0" r="1.9" fill="#3fb950"/><circle cx="200.9" cy="31.0" r="1.9" fill="#3fb950"/><circle cx="210.0" cy="30.9" r="1.9" fill="#3fb950"/></svg><span class="done-cap">md3 rebuild 54% &rarr; 86.7% &rarr; in progress</span></span>
+      <span class="done-spark"><svg class="spark" width="210" height="34" viewBox="0 0 210 34"><polyline points="0.0,14.9 9.5,2.0 19.1,32.0 28.6,31.9 38.2,31.9 47.7,31.8 57.3,31.8 66.8,31.7 76.4,31.7 85.9,31.6 95.5,31.6 105.0,31.5 114.5,31.5 124.1,31.4 133.6,31.4 143.2,31.3 152.7,31.3 162.3,31.2 171.8,31.2 181.4,31.1 190.9,31.1 200.5,31.0 210.0,31.0" fill="none" stroke="#3fb950" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" opacity=".85"/><circle cx="0.0" cy="14.9" r="2.4" fill="var(--card, #161b22)" stroke="#3fb950" stroke-width="1.3" stroke-dasharray="2 1.4"/><title>prose figure - unverified</title><circle cx="9.5" cy="2.0" r="2.4" fill="var(--card, #161b22)" stroke="#3fb950" stroke-width="1.4"/><title>live API reading from an earlier session (2026-10-19 04:33) - no standalone json artifact</title><circle cx="19.1" cy="32.0" r="1.9" fill="#3fb950"/><circle cx="28.6" cy="31.9" r="1.9" fill="#3fb950"/><circle cx="38.2" cy="31.9" r="1.9" fill="#3fb950"/><circle cx="47.7" cy="31.8" r="1.9" fill="#3fb950"/><circle cx="57.3" cy="31.8" r="1.9" fill="#3fb950"/><circle cx="66.8" cy="31.7" r="1.9" fill="#3fb950"/><circle cx="76.4" cy="31.7" r="1.9" fill="#3fb950"/><circle cx="85.9" cy="31.6" r="1.9" fill="#3fb950"/><circle cx="95.5" cy="31.6" r="1.9" fill="#3fb950"/><circle cx="105.0" cy="31.5" r="1.9" fill="#3fb950"/><circle cx="114.5" cy="31.5" r="1.9" fill="#3fb950"/><circle cx="124.1" cy="31.4" r="1.9" fill="#3fb950"/><circle cx="133.6" cy="31.4" r="1.9" fill="#3fb950"/><circle cx="143.2" cy="31.3" r="1.9" fill="#3fb950"/><circle cx="152.7" cy="31.3" r="1.9" fill="#3fb950"/><circle cx="162.3" cy="31.2" r="1.9" fill="#3fb950"/><circle cx="171.8" cy="31.2" r="1.9" fill="#3fb950"/><circle cx="181.4" cy="31.1" r="1.9" fill="#3fb950"/><circle cx="190.9" cy="31.1" r="1.9" fill="#3fb950"/><circle cx="200.5" cy="31.0" r="1.9" fill="#3fb950"/><circle cx="210.0" cy="31.0" r="1.9" fill="#3fb950"/></svg><span class="done-cap">md3 rebuild 54% &rarr; 86.7% &rarr; in progress</span></span>
     </div>
-    <div class="mut small">No background task running on any box.</div>
+    <div class="tasks">
+        <div class="task rebuild">
+          <div class="task-head">
+            <span class="badge rebuild">REBUILD</span>
+            <span class="task-box">ds4 &middot; volume_1</span>
+            <span class="task-pct">0.97%</span>
+          </div>
+          <div class="bar"><div class="bar-fill" style="width:0.97%;background:#58a6ff"></div></div>
+          <div class="task-foot">
+            <span class="spark-wrap"></span>
+            <span class="eta-wrap"></span>
+          </div>
+          
+          <div class="task-foot2">1 readings &middot; as of 2026-11-03 03:21 &middot;  &rarr; </div>
+        </div></div>
   </div>
 
   <div class="boxes">
@@ -150,8 +164,8 @@
           <h2>ds1</h2>
           <div class="bc-meta">
             <span>DS2413+</span>
-            <span>up 52:3:19</span>
-            <span class="t-ok">38&deg;C</span>
+            <span>up 52:23:24</span>
+            <span class="t-ok">37&deg;C</span>
           </div>
         </div>
         <span class="state ok">HEALTHY</span>
@@ -227,7 +241,7 @@
           <h2>ds2</h2>
           <div class="bc-meta">
             <span>DS2411+</span>
-            <span>up 52:3:46</span>
+            <span>up 52:23:51</span>
             <span class="t-ok">39&deg;C</span>
           </div>
         </div>
@@ -302,7 +316,7 @@
           <h2>ds3</h2>
           <div class="bc-meta">
             <span>DS2413+</span>
-            <span>up 52:3:16</span>
+            <span>up 52:23:21</span>
             <span class="t-warn">41&deg;C</span>
           </div>
         </div>
@@ -386,8 +400,8 @@
           <h2>ds4</h2>
           <div class="bc-meta">
             <span>DS2413+</span>
-            <span>up 59:37:5</span>
-            <span class="t-warn">44&deg;C</span>
+            <span>up 59:57:11</span>
+            <span class="t-crit">47&deg;C</span>
           </div>
         </div>
         <span class="state crit">DEGRADED</span>
@@ -400,16 +414,16 @@
         <div class="vol">
           <div class="vol-top">
             <span class="vname">volume_1</span>
-            <span class="pill crit">degrade</span>
+            <span class="pill scrub">background</span>
             <span class="vfill">80% full</span>
           </div>
           <div class="bar"><div class="bar-fill thin" style="width:80.00%;background:#e3b341"></div></div>
           <div class="vol-meta">
             <span>45.2 TB &middot; 9.1 TB free</span>
-            <span>scrub: abnormal</span>
-            <span class="fail">failures: 1</span>
+            <span>scrub: wait_for_another_operation</span>
+            
           </div>
-          
+          <div class="vprog"><span class="mini-label">REBUILD</span><div class="bar"><div class="bar-fill" style="width:0.97%;background:#58a6ff"></div></div><span class="mini-pct">0.97%</span></div>
         </div>
         <div class="vol">
           <div class="vol-top">
@@ -439,7 +453,7 @@
             <span class="praid">/dev/md2 &middot; reuse_1</span>
             <span class="pmem crit">11/12</span>
           </div>
-          <div class="pips"><span class="pip ok" title="slot 1 sdl normal"></span><span class="pip ok" title="slot 0 sdk normal"></span><span class="pip warn" title="slot 9 sdj system_crashed (drive reports system_crashed)"></span><span class="pip ok" title="slot 8 sdi normal"></span><span class="pip warn" title="slot 7 sdh system_crashed (drive reports system_crashed)"></span><span class="pip warn" title="slot 6 sdg system_crashed (drive reports system_crashed)"></span><span class="pip warn" title="slot 5 sdf system_crashed (drive reports system_crashed)"></span><span class="pip ok" title="slot 4 sde normal"></span><span class="pip ok" title="slot 3 sdd normal"></span><span class="pip ok" title="slot 2 sdc normal"></span><span class="pip ok" title="slot 11 sdb normal"></span><span class="pip missing" title="member absent"></span></div>
+          <div class="pips"><span class="pip ok" title="slot 1 sdl normal"></span><span class="pip ok" title="slot 0 sdk normal"></span><span class="pip warn" title="slot 9 sdj system_crashed (drive reports system_crashed)"></span><span class="pip ok" title="slot 8 sdi normal"></span><span class="pip warn" title="slot 7 sdh system_crashed (drive reports system_crashed)"></span><span class="pip warn" title="slot 6 sdg system_crashed (drive reports system_crashed)"></span><span class="pip warn" title="slot 5 sdf system_crashed (drive reports system_crashed)"></span><span class="pip ok" title="slot 4 sde normal"></span><span class="pip ok" title="slot 3 sdd normal"></span><span class="pip ok" title="slot 2 sdc normal"></span><span class="pip ok" title="slot 11 sdb normal"></span><span class="pip crit" title="slot 10 sda rebuild"></span></div>
         </div>
         <div class="pool">
           <div class="pool-top">
@@ -467,11 +481,6 @@
           <h3>Disks needing attention <span class="mut">(24 total)</span></h3>
           
         <div class="diskrow">
-          <span class="pill crit">not_use</span>
-          <span class="dname">sda &middot; bay 1</span>
-          <span class="dsmart">SMART normal</span>
-        </div>
-        <div class="diskrow">
           <span class="pill warn">system_crashed</span>
           <span class="dname">sdf &middot; bay 6</span>
           <span class="dsmart">SMART normal</span>
@@ -492,7 +501,7 @@
           <span class="dsmart">SMART normal</span>
         </div>
           <h3>Findings</h3>
-          <ul class="findings crit"><li>volume_1 is degrade (80% full)</li><li>/dev/md2 has 11/12 members (pool reuse_1)</li></ul><ul class="findings high"><li>volume_1 scrubbingStatus=abnormal</li></ul><ul class="findings medium"><li>sda (slot 1) not_use, SMART normal, REDACTED</li></ul><ul class="findings low"><li>sdf flagged system_crashed</li><li>sdg flagged system_crashed</li><li>sdh flagged system_crashed</li><li>sdj flagged system_crashed</li></ul>
+          <ul class="findings crit"><li>/dev/md2 has 11/12 members (pool reuse_1)</li></ul><ul class="findings high"><li>volume_1 REBUILD in progress at 0.97</li><li>/dev/md2 slot 10 (None) status=rebuild</li></ul><ul class="findings low"><li>sdf flagged system_crashed</li><li>sdg flagged system_crashed</li><li>sdh flagged system_crashed</li><li>sdj flagged system_crashed</li></ul>
         </div>
       </div>
     </section></div>
