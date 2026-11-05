@@ -118,8 +118,8 @@
   footer { margin-top:16px; color:var(--muted-foreground, #8b949e); font-size:11px; }
 </style></head><body>
   <h1>NAS fleet &mdash; storage health dashboard</h1>
-  <div class="sub">Sanitized read-only API snapshot &middot; 2026-11-05 14:01 &middot;
-    schema <code>ds-public/1</code> &middot; 10.7s collection</div>
+  <div class="sub">Sanitized read-only API snapshot &middot; 2026-11-05 14:21 &middot;
+    schema <code>ds-public/1</code> &middot; 38.7s collection</div>
 
   <div class="kpis">
     <div class="kpi"><span class="k-l">Boxes online</span><span class="k-v">4 / 4</span></div>
@@ -127,7 +127,7 @@
     <div class="kpi"><span class="k-l">Disks</span><span class="k-v">96</span></div>
     <div class="kpi"><span class="k-l">Rebuilding now</span><span class="k-v ok">0</span></div>
     <div class="kpi"><span class="k-l">Background tasks</span><span class="k-v">0</span></div>
-    <div class="kpi"><span class="k-l">Degraded volumes</span><span class="k-v crit">1</span></div></div>
+    <div class="kpi"><span class="k-l">Degraded volumes</span><span class="k-v crit">2</span></div></div>
 
   <div class="panel">
     <h3>Rebuild &amp; scrub progress</h3>
@@ -150,7 +150,7 @@
           <h2>ds1</h2>
           <div class="bc-meta">
             <span>DS2413+</span>
-            <span>up 111:3:32</span>
+            <span>up 111:23:39</span>
             <span class="t-ok">34&deg;C</span>
           </div>
         </div>
@@ -227,7 +227,7 @@
           <h2>ds2</h2>
           <div class="bc-meta">
             <span>DS2411+</span>
-            <span>up 111:3:52</span>
+            <span>up 111:23:59</span>
             <span class="t-ok">37&deg;C</span>
           </div>
         </div>
@@ -302,8 +302,8 @@
           <h2>ds3</h2>
           <div class="bc-meta">
             <span>DS2413+</span>
-            <span>up 111:3:26</span>
-            <span class="t-ok">38&deg;C</span>
+            <span>up 111:23:33</span>
+            <span class="t-ok">39&deg;C</span>
           </div>
         </div>
         <span class="state ok">HEALTHY</span>
@@ -380,17 +380,17 @@
         </div>
       </div>
     </section>
-    <section class="boxcard ok">
+    <section class="boxcard crit">
       <header class="bc-head">
         <div class="bc-title">
           <h2>ds4</h2>
           <div class="bc-meta">
             <span>DS2413+</span>
-            <span>up 118:37:14</span>
-            <span class="t-warn">40&deg;C</span>
+            <span>up 118:57:22</span>
+            <span class="t-warn">41&deg;C</span>
           </div>
         </div>
-        <span class="state ok">HEALTHY</span>
+        <span class="state crit">DEGRADED</span>
       </header>
 
       <div class="bc-grid">
@@ -400,14 +400,14 @@
         <div class="vol">
           <div class="vol-top">
             <span class="vname">volume_1</span>
-            <span class="pill ok">normal</span>
+            <span class="pill crit">degrade</span>
             <span class="vfill">80% full</span>
           </div>
           <div class="bar"><div class="bar-fill thin" style="width:80.00%;background:#e3b341"></div></div>
           <div class="vol-meta">
             <span>45.2 TB &middot; 9.1 TB free</span>
-            <span>scrub: no_action</span>
-            
+            <span>scrub: abnormal</span>
+            <span class="fail">failures: 1</span>
           </div>
           
         </div>
@@ -437,9 +437,9 @@
         <div class="pool">
           <div class="pool-top">
             <span class="praid">/dev/md2 &middot; reuse_1</span>
-            <span class="pmem ok">12/12</span>
+            <span class="pmem crit">11/12</span>
           </div>
-          <div class="pips"><span class="pip ok" title="slot 1 sdl normal"></span><span class="pip ok" title="slot 0 sdk normal"></span><span class="pip ok" title="slot 9 sdj normal"></span><span class="pip ok" title="slot 8 sdi normal"></span><span class="pip ok" title="slot 7 sdh normal"></span><span class="pip ok" title="slot 6 sdg normal"></span><span class="pip ok" title="slot 5 sdf normal"></span><span class="pip ok" title="slot 4 sde normal"></span><span class="pip ok" title="slot 3 sdd normal"></span><span class="pip ok" title="slot 2 sdc normal"></span><span class="pip ok" title="slot 11 sdb normal"></span><span class="pip ok" title="slot 10 sda normal"></span></div>
+          <div class="pips"><span class="pip ok" title="slot 1 sdl normal"></span><span class="pip ok" title="slot 0 sdk normal"></span><span class="pip ok" title="slot 9 sdj normal"></span><span class="pip ok" title="slot 8 sdi normal"></span><span class="pip ok" title="slot 7 sdh normal"></span><span class="pip ok" title="slot 6 sdg normal"></span><span class="pip ok" title="slot 5 sdf normal"></span><span class="pip ok" title="slot 4 sde normal"></span><span class="pip ok" title="slot 3 sdd normal"></span><span class="pip ok" title="slot 2 sdc normal"></span><span class="pip ok" title="slot 11 sdb normal"></span><span class="pip missing" title="member absent"></span></div>
         </div>
         <div class="pool">
           <div class="pool-top">
@@ -465,9 +465,14 @@
         </div>
         <div class="bc-col">
           <h3>Disks needing attention <span class="mut">(24 total)</span></h3>
-          <div class="mut small">none &mdash; all members normal</div>
+          
+        <div class="diskrow">
+          <span class="pill crit">not_use</span>
+          <span class="dname">sda &middot; bay 1</span>
+          <span class="dsmart">SMART normal</span>
+        </div>
           <h3>Findings</h3>
-          <div class="mut small">none</div>
+          <ul class="findings crit"><li>volume_1 is degrade (80% full)</li><li>/dev/md2 has 11/12 members (pool reuse_1)</li></ul><ul class="findings high"><li>volume_1 scrubbingStatus=abnormal</li></ul><ul class="findings medium"><li>sda (slot 1) not_use, SMART normal, REDACTED</li></ul>
         </div>
       </div>
     </section></div>

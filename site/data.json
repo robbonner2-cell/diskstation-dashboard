@@ -1,12 +1,12 @@
 {
  "schema": "ds-public/1",
- "taken": "2026-11-05T14:01:01-0500",
- "elapsed_s": 10.7,
+ "taken": "2026-11-05T14:21:36-0500",
+ "elapsed_s": 38.7,
  "boxes": [
   {
    "id": "ds1",
    "model": "DS2413+",
-   "uptime": "111:3:32",
+   "uptime": "111:23:39",
    "temp": 34,
    "disk_count": 24,
    "volumes": [
@@ -518,7 +518,7 @@
   {
    "id": "ds2",
    "model": "DS2411+",
-   "uptime": "111:3:52",
+   "uptime": "111:23:59",
    "temp": 37,
    "disk_count": 24,
    "volumes": [
@@ -973,8 +973,8 @@
   {
    "id": "ds3",
    "model": "DS2413+",
-   "uptime": "111:3:26",
-   "temp": 38,
+   "uptime": "111:23:33",
+   "temp": 39,
    "disk_count": 24,
    "volumes": [
     {
@@ -1564,21 +1564,21 @@
   {
    "id": "ds4",
    "model": "DS2413+",
-   "uptime": "118:37:14",
-   "temp": 40,
+   "uptime": "118:57:22",
+   "temp": 41,
    "disk_count": 24,
    "volumes": [
     {
      "id": "volume_1",
-     "status": "normal",
+     "status": "degrade",
      "pct": 80,
      "tb": 45.2,
      "free_tb": 9.1,
-     "scrub": "no_action",
+     "scrub": "abnormal",
      "progress_percent": "-1",
      "progress_step": "none",
      "device_type": "shr_with_2_disk_protect",
-     "disk_failure_number": 0
+     "disk_failure_number": 1
     },
     {
      "id": "volume_2",
@@ -1601,7 +1601,7 @@
      "have": 4,
      "need": 4,
      "raid_status": null,
-     "disk_failure_number": 0,
+     "disk_failure_number": 1,
      "devices": [
       {
        "name": null,
@@ -1637,10 +1637,10 @@
      "pool_id": "reuse_1",
      "deploy_path": "volume_1",
      "raid": "/dev/md2",
-     "have": 12,
+     "have": 11,
      "need": 12,
      "raid_status": null,
-     "disk_failure_number": 0,
+     "disk_failure_number": 1,
      "devices": [
       {
        "name": null,
@@ -1718,13 +1718,6 @@
        "status": "normal",
        "disk_id": "sdb",
        "in_dev": null
-      },
-      {
-       "name": null,
-       "slot": 10,
-       "status": "normal",
-       "disk_id": "sda",
-       "in_dev": null
       }
      ]
     },
@@ -1735,7 +1728,7 @@
      "have": 6,
      "need": 6,
      "raid_status": null,
-     "disk_failure_number": 0,
+     "disk_failure_number": 1,
      "devices": [
       {
        "name": null,
@@ -1955,10 +1948,10 @@
     {
      "id": "sda",
      "slot": 1,
-     "status": "normal",
+     "status": "not_use",
      "smart": "normal",
      "size_tb": 3.0,
-     "used_by": "reuse_1",
+     "used_by": "",
      "temp": null
     },
     {
@@ -2170,68 +2163,27 @@
     }
    ],
    "rebuilding_members": [],
-   "findings": []
+   "findings": [
+    {
+     "sev": "critical",
+     "msg": "volume_1 is degrade (80% full)"
+    },
+    {
+     "sev": "high",
+     "msg": "volume_1 scrubbingStatus=abnormal"
+    },
+    {
+     "sev": "critical",
+     "msg": "/dev/md2 has 11/12 members (pool reuse_1)"
+    },
+    {
+     "sev": "medium",
+     "msg": "sda (slot 1) not_use, SMART normal, REDACTED"
+    }
+   ]
   }
  ],
  "history": [
-  {
-   "at": "2026-11-02T17:43:42-0500",
-   "prov": "measured",
-   "boxes": [
-    {
-     "id": "ds1",
-     "volumes": [
-      {
-       "id": "volume_1",
-       "progress_percent": "-1"
-      },
-      {
-       "id": "volume_2",
-       "progress_percent": "-1"
-      }
-     ]
-    },
-    {
-     "id": "ds2",
-     "volumes": [
-      {
-       "id": "volume_2",
-       "progress_percent": "-1"
-      },
-      {
-       "id": "volume_1",
-       "progress_percent": "77.48"
-      }
-     ]
-    },
-    {
-     "id": "ds3",
-     "volumes": [
-      {
-       "id": "volume_2",
-       "progress_percent": "-1"
-      },
-      {
-       "id": "volume_1",
-       "progress_percent": "-1"
-      }
-     ]
-    },
-    {
-     "id": "ds4",
-     "volumes": [
-      {
-       "id": "volume_1",
-       "progress_percent": "-1"
-      },
-      {
-       "id": "volume_2",
-       "progress_percent": "-1"
-      }
-     ]
-    }
-   ]
-  },
   {
    "at": "2026-11-02T18:03:20-0500",
    "prov": "measured",
@@ -13718,6 +13670,64 @@
   },
   {
    "at": "2026-11-05T14:01:01-0500",
+   "prov": "measured",
+   "boxes": [
+    {
+     "id": "ds1",
+     "volumes": [
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds2",
+     "volumes": [
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds3",
+     "volumes": [
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds4",
+     "volumes": [
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": "2026-11-05T14:21:36-0500",
    "prov": "measured",
    "boxes": [
     {
