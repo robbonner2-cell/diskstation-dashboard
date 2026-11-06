@@ -1,9 +1,9 @@
 {
-  "rendered_at": "2026-11-06 13:51",
-  "payload_taken": "2026-11-06 13:51",
+  "rendered_at": "2026-11-06 14:10",
+  "payload_taken": "2026-11-06 14:10",
   "boxes_count": 4,
-  "total_raw_tb": 623.0,
-  "total_spindles": 96,
+  "total_raw_tb": 620.0,
+  "total_spindles": 95,
   "active_task_count": 0,
   "degraded_volume_count": 2,
   "critical_finding_count": 4,
