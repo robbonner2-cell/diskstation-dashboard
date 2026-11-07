@@ -1,12 +1,12 @@
 {
  "schema": "ds-public/1",
- "taken": "2026-11-07T01:50:26-0500",
- "elapsed_s": 8.7,
+ "taken": "2026-11-07T02:10:59-0500",
+ "elapsed_s": 36.2,
  "boxes": [
   {
    "id": "ds1",
    "model": "DS2413+",
-   "uptime": "146:53:2",
+   "uptime": "147:13:7",
    "temp": 33,
    "disk_count": 24,
    "volumes": [
@@ -518,7 +518,7 @@
   {
    "id": "ds2",
    "model": "DS2411+",
-   "uptime": "146:53:18",
+   "uptime": "147:13:23",
    "temp": 36,
    "disk_count": 24,
    "volumes": [
@@ -973,7 +973,7 @@
   {
    "id": "ds3",
    "model": "DS2413+",
-   "uptime": "146:52:54",
+   "uptime": "147:12:59",
    "temp": 39,
    "disk_count": 24,
    "volumes": [
@@ -1564,7 +1564,7 @@
   {
    "id": "ds4",
    "model": "DS2413+",
-   "uptime": "154:26:42",
+   "uptime": "154:46:47",
    "temp": 39,
    "disk_count": 24,
    "volumes": [
@@ -2184,64 +2184,6 @@
   }
  ],
  "history": [
-  {
-   "at": "2026-11-04T02:08:47-0500",
-   "prov": "measured",
-   "boxes": [
-    {
-     "id": "ds1",
-     "volumes": [
-      {
-       "id": "volume_1",
-       "progress_percent": "-1"
-      },
-      {
-       "id": "volume_2",
-       "progress_percent": "-1"
-      }
-     ]
-    },
-    {
-     "id": "ds2",
-     "volumes": [
-      {
-       "id": "volume_2",
-       "progress_percent": "-1"
-      },
-      {
-       "id": "volume_1",
-       "progress_percent": "-1"
-      }
-     ]
-    },
-    {
-     "id": "ds3",
-     "volumes": [
-      {
-       "id": "volume_2",
-       "progress_percent": "-1"
-      },
-      {
-       "id": "volume_1",
-       "progress_percent": "-1"
-      }
-     ]
-    },
-    {
-     "id": "ds4",
-     "volumes": [
-      {
-       "id": "volume_1",
-       "progress_percent": "75.39"
-      },
-      {
-       "id": "volume_2",
-       "progress_percent": "-1"
-      }
-     ]
-    }
-   ]
-  },
   {
    "at": "2026-11-04T02:29:13-0500",
    "prov": "measured",
@@ -13728,6 +13670,64 @@
   },
   {
    "at": "2026-11-07T01:50:26-0500",
+   "prov": "measured",
+   "boxes": [
+    {
+     "id": "ds1",
+     "volumes": [
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds2",
+     "volumes": [
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds3",
+     "volumes": [
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds4",
+     "volumes": [
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": "2026-11-07T02:10:59-0500",
    "prov": "measured",
    "boxes": [
     {
