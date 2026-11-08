@@ -1,12 +1,12 @@
 {
  "schema": "ds-public/1",
- "taken": "2026-11-08T16:43:48-0500",
- "elapsed_s": 8.6,
+ "taken": "2026-11-08T17:03:57-0500",
+ "elapsed_s": 8.7,
  "boxes": [
   {
    "id": "ds1",
    "model": "DS2413+",
-   "uptime": "185:46:27",
+   "uptime": "186:6:36",
    "temp": 33,
    "disk_count": 24,
    "volumes": [
@@ -518,8 +518,8 @@
   {
    "id": "ds2",
    "model": "DS2411+",
-   "uptime": "185:46:39",
-   "temp": 37,
+   "uptime": "186:6:48",
+   "temp": 36,
    "disk_count": 24,
    "volumes": [
     {
@@ -973,7 +973,7 @@
   {
    "id": "ds3",
    "model": "DS2413+",
-   "uptime": "185:46:17",
+   "uptime": "186:6:26",
    "temp": 39,
    "disk_count": 24,
    "volumes": [
@@ -1564,9 +1564,9 @@
   {
    "id": "ds4",
    "model": "DS2413+",
-   "uptime": "193:20:5",
+   "uptime": "193:40:14",
    "temp": 39,
-   "disk_count": 23,
+   "disk_count": 24,
    "volumes": [
     {
      "id": "volume_1",
@@ -1946,6 +1946,15 @@
    ],
    "disks": [
     {
+     "id": "sda",
+     "slot": 1,
+     "status": "not_use",
+     "smart": "normal",
+     "size_tb": 3.0,
+     "used_by": "",
+     "temp": null
+    },
+    {
      "id": "sdb",
      "slot": 2,
      "status": "normal",
@@ -2166,69 +2175,15 @@
     {
      "sev": "critical",
      "msg": "/dev/md2 has 11/12 members (pool reuse_1)"
+    },
+    {
+     "sev": "medium",
+     "msg": "sda (slot 1) not_use, SMART normal, REDACTED"
     }
    ]
   }
  ],
  "history": [
-  {
-   "at": "2026-11-05T18:42:46-0500",
-   "prov": "measured",
-   "boxes": [
-    {
-     "id": "ds1",
-     "volumes": [
-      {
-       "id": "volume_1",
-       "progress_percent": "-1"
-      },
-      {
-       "id": "volume_2",
-       "progress_percent": "-1"
-      }
-     ]
-    },
-    {
-     "id": "ds2",
-     "volumes": [
-      {
-       "id": "volume_2",
-       "progress_percent": "-1"
-      },
-      {
-       "id": "volume_1",
-       "progress_percent": "-1"
-      }
-     ]
-    },
-    {
-     "id": "ds3",
-     "volumes": [
-      {
-       "id": "volume_2",
-       "progress_percent": "-1"
-      },
-      {
-       "id": "volume_1",
-       "progress_percent": "-1"
-      }
-     ]
-    },
-    {
-     "id": "ds4",
-     "volumes": [
-      {
-       "id": "volume_1",
-       "progress_percent": "-1"
-      },
-      {
-       "id": "volume_2",
-       "progress_percent": "-1"
-      }
-     ]
-    }
-   ]
-  },
   {
    "at": "2026-11-05T19:02:44-0500",
    "prov": "measured",
@@ -13715,6 +13670,64 @@
   },
   {
    "at": "2026-11-08T16:43:48-0500",
+   "prov": "measured",
+   "boxes": [
+    {
+     "id": "ds1",
+     "volumes": [
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds2",
+     "volumes": [
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds3",
+     "volumes": [
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds4",
+     "volumes": [
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": "2026-11-08T17:03:57-0500",
    "prov": "measured",
    "boxes": [
     {
