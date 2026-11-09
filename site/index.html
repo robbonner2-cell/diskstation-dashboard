@@ -118,16 +118,16 @@
   footer { margin-top:16px; color:var(--muted-foreground, #8b949e); font-size:11px; }
 </style></head><body>
   <h1>NAS fleet &mdash; storage health dashboard</h1>
-  <div class="sub">Sanitized read-only API snapshot &middot; 2026-11-09 15:52 &middot;
+  <div class="sub">Sanitized read-only API snapshot &middot; 2026-11-09 16:12 &middot;
     schema <code>ds-public/1</code> &middot; 10.3s collection</div>
 
   <div class="kpis">
     <div class="kpi"><span class="k-l">Boxes online</span><span class="k-v">4 / 4</span></div>
     <div class="kpi"><span class="k-l">Raw capacity</span><span class="k-v">623 TB</span><span class="k-s">480 TB usable</span></div>
     <div class="kpi"><span class="k-l">Disks</span><span class="k-v">96</span></div>
-    <div class="kpi"><span class="k-l">Rebuilding now</span><span class="k-v ok">0</span></div>
-    <div class="kpi"><span class="k-l">Background tasks</span><span class="k-v">0</span></div>
-    <div class="kpi"><span class="k-l">Degraded volumes</span><span class="k-v crit">3</span></div></div>
+    <div class="kpi"><span class="k-l">Rebuilding now</span><span class="k-v crit">1</span></div>
+    <div class="kpi"><span class="k-l">Background tasks</span><span class="k-v">1</span></div>
+    <div class="kpi"><span class="k-l">Degraded volumes</span><span class="k-v crit">2</span></div></div>
 
   <div class="panel">
     <h3>Rebuild &amp; scrub progress</h3>
@@ -135,12 +135,26 @@
     <div class="done">
       <span class="pill warn">IN PROGRESS</span>
       <span class="done-txt"><b>ds2 &middot; volume_2 &mdash; RAID rebuild still running.</b>
-      md3 is <b>11/12</b> members (<b>0</b> flagged rebuild, <b>0</b> non-normal)
-      and volume_2 is <code>degrade</code>. Remaining ds2 fault is volume_1 / md2 at <b>11/12</b> (1 member gone);
+      md3 is <b>11/12</b> members (<b>1</b> flagged rebuild, <b>0</b> non-normal)
+      and volume_2 is <code>repairing</code>. Remaining ds2 fault is volume_1 / md2 at <b>11/12</b> (1 member gone);
       volume_1 status is <code>degrade</code>.</span>
-      <span class="done-spark"><svg class="spark" width="210" height="34" viewBox="0 0 210 34"><polyline points="0.0,32.0 210.0,2.0" fill="none" stroke="#3fb950" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" opacity=".85"/><circle cx="0.0" cy="32.0" r="2.4" fill="var(--card, #161b22)" stroke="#3fb950" stroke-width="1.3" stroke-dasharray="2 1.4"/><title>prose figure - unverified</title><circle cx="210.0" cy="2.0" r="2.4" fill="var(--card, #161b22)" stroke="#3fb950" stroke-width="1.4"/><title>live API reading from an earlier session (2026-10-19 04:33) - no standalone json artifact</title></svg><span class="done-cap">md3 rebuild 54% &rarr; 86.7% &rarr; in progress</span></span>
+      <span class="done-spark"><svg class="spark" width="210" height="34" viewBox="0 0 210 34"><polyline points="0.0,13.4 105.0,2.0 210.0,32.0" fill="none" stroke="#3fb950" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" opacity=".85"/><circle cx="0.0" cy="13.4" r="2.4" fill="var(--card, #161b22)" stroke="#3fb950" stroke-width="1.3" stroke-dasharray="2 1.4"/><title>prose figure - unverified</title><circle cx="105.0" cy="2.0" r="2.4" fill="var(--card, #161b22)" stroke="#3fb950" stroke-width="1.4"/><title>live API reading from an earlier session (2026-10-19 04:33) - no standalone json artifact</title><circle cx="210.0" cy="32.0" r="1.9" fill="#3fb950"/></svg><span class="done-cap">md3 rebuild 54% &rarr; 86.7% &rarr; in progress</span></span>
     </div>
-    <div class="mut small">No background task running on any box.</div>
+    <div class="tasks">
+        <div class="task rebuild">
+          <div class="task-head">
+            <span class="badge rebuild">REBUILD</span>
+            <span class="task-box">ds2 &middot; volume_2</span>
+            <span class="task-pct">0.37%</span>
+          </div>
+          <div class="bar"><div class="bar-fill" style="width:0.37%;background:#58a6ff"></div></div>
+          <div class="task-foot">
+            <span class="spark-wrap"><svg class="spark" width="118" height="26" viewBox="0 0 118 26"><polyline points="0.0,10.3 59.0,2.0 118.0,24.0" fill="none" stroke="#58a6ff" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" opacity=".85"/><circle cx="0.0" cy="10.3" r="2.4" fill="var(--card, #161b22)" stroke="#58a6ff" stroke-width="1.3" stroke-dasharray="2 1.4"/><title>prose figure - unverified</title><circle cx="59.0" cy="2.0" r="2.4" fill="var(--card, #161b22)" stroke="#58a6ff" stroke-width="1.4"/><title>live API reading from an earlier session (2026-10-19 04:33) - no standalone json artifact</title><circle cx="118.0" cy="24.0" r="1.9" fill="#58a6ff"/></svg></span>
+            <span class="eta-wrap"></span>
+          </div>
+          
+          <div class="task-foot2">1 readings &middot; as of 2026-11-09 16:12 &middot;  &rarr; </div>
+        </div></div>
   </div>
 
   <div class="boxes">
@@ -150,7 +164,7 @@
           <h2>ds1</h2>
           <div class="bc-meta">
             <span>DS2413+</span>
-            <span>up 208:54:59</span>
+            <span>up 209:15:9</span>
             <span class="t-ok">34&deg;C</span>
           </div>
         </div>
@@ -227,7 +241,7 @@
           <h2>ds2</h2>
           <div class="bc-meta">
             <span>DS2411+</span>
-            <span>up 0:55:35</span>
+            <span>up 1:15:46</span>
             <span class="t-ok">37&deg;C</span>
           </div>
         </div>
@@ -241,16 +255,16 @@
         <div class="vol">
           <div class="vol-top">
             <span class="vname">volume_2</span>
-            <span class="pill crit">degrade</span>
+            <span class="pill rebuild">repairing</span>
             <span class="vfill">37% full</span>
           </div>
           <div class="bar"><div class="bar-fill thin" style="width:37.00%;background:#3fb950"></div></div>
           <div class="vol-meta">
             <span>29.8 TB &middot; 18.9 TB free</span>
-            <span>scrub: abnormal</span>
-            <span class="fail">failures: 1</span>
+            <span>scrub: wait_for_another_operation</span>
+            
           </div>
-          
+          <div class="vprog"><span class="mini-label">REBUILD</span><div class="bar"><div class="bar-fill" style="width:0.37%;background:#58a6ff"></div></div><span class="mini-pct">0.37%</span></div>
         </div>
         <div class="vol">
           <div class="vol-top">
@@ -273,7 +287,7 @@
             <span class="praid">/dev/md3 &middot; reuse_2</span>
             <span class="pmem crit">11/12</span>
           </div>
-          <div class="pips"><span class="pip ok" title="slot 11 sdpc normal"></span><span class="pip ok" title="slot 10 sdpb normal"></span><span class="pip ok" title="slot 8 sdoc normal"></span><span class="pip ok" title="slot 7 sdob normal"></span><span class="pip ok" title="slot 6 sdoa normal"></span><span class="pip ok" title="slot 5 sdnc normal"></span><span class="pip ok" title="slot 4 sdnb normal"></span><span class="pip ok" title="slot 3 sdna normal"></span><span class="pip ok" title="slot 2 sdmc normal"></span><span class="pip ok" title="slot 0 sdma normal"></span><span class="pip ok" title="slot 9 sdi normal"></span><span class="pip missing" title="member absent"></span></div>
+          <div class="pips"><span class="pip ok" title="slot 11 sdpc normal"></span><span class="pip ok" title="slot 10 sdpb normal"></span><span class="pip crit" title="slot 1 sdpa rebuild"></span><span class="pip ok" title="slot 8 sdoc normal"></span><span class="pip ok" title="slot 7 sdob normal"></span><span class="pip ok" title="slot 6 sdoa normal"></span><span class="pip ok" title="slot 5 sdnc normal"></span><span class="pip ok" title="slot 4 sdnb normal"></span><span class="pip ok" title="slot 3 sdna normal"></span><span class="pip ok" title="slot 2 sdmc normal"></span><span class="pip ok" title="slot 0 sdma normal"></span><span class="pip ok" title="slot 9 sdi normal"></span></div>
         </div>
         <div class="pool">
           <div class="pool-top">
@@ -291,13 +305,8 @@
           <span class="dname">sdmb &middot; bay 2</span>
           <span class="dsmart">SMART normal</span>
         </div>
-        <div class="diskrow">
-          <span class="pill crit">not_use</span>
-          <span class="dname">sdpa &middot; bay 10</span>
-          <span class="dsmart">SMART normal</span>
-        </div>
           <h3>Findings</h3>
-          <ul class="findings crit"><li>volume_2 is degrade (37% full)</li><li>volume_1 is degrade (38% full)</li><li>/dev/md3 has 11/12 members (pool reuse_2)</li><li>/dev/md2 has 11/12 members (pool reuse_1)</li></ul><ul class="findings high"><li>volume_2 scrubbingStatus=abnormal</li><li>volume_1 scrubbingStatus=abnormal</li></ul><ul class="findings medium"><li>sdmb (slot 2) not_use, SMART normal, REDACTED</li><li>sdpa (slot 10) not_use, SMART normal, REDACTED</li></ul>
+          <ul class="findings crit"><li>volume_1 is degrade (38% full)</li><li>/dev/md3 has 11/12 members (pool reuse_2)</li><li>/dev/md2 has 11/12 members (pool reuse_1)</li></ul><ul class="findings high"><li>volume_2 is repairing</li><li>volume_2 REBUILD in progress at 0.37</li><li>volume_1 scrubbingStatus=abnormal</li><li>/dev/md3 slot 1 (None) status=rebuild</li></ul><ul class="findings medium"><li>sdmb (slot 2) not_use, SMART normal, REDACTED</li></ul>
         </div>
       </div>
     </section>
@@ -307,8 +316,8 @@
           <h2>ds3</h2>
           <div class="bc-meta">
             <span>DS2413+</span>
-            <span>up 208:54:48</span>
-            <span class="t-ok">38&deg;C</span>
+            <span>up 209:14:58</span>
+            <span class="t-ok">39&deg;C</span>
           </div>
         </div>
         <span class="state ok">HEALTHY</span>
@@ -391,7 +400,7 @@
           <h2>ds4</h2>
           <div class="bc-meta">
             <span>DS2413+</span>
-            <span>up 216:28:36</span>
+            <span>up 216:48:46</span>
             <span class="t-warn">41&deg;C</span>
           </div>
         </div>
