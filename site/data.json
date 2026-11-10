@@ -1,12 +1,12 @@
 {
  "schema": "ds-public/1",
- "taken": "2026-11-10T13:21:09-0500",
- "elapsed_s": 11.1,
+ "taken": "2026-11-10T13:41:46-0500",
+ "elapsed_s": 37.7,
  "boxes": [
   {
    "id": "ds1",
    "model": "DS2413+",
-   "uptime": "230:23:51",
+   "uptime": "230:44:1",
    "temp": 33,
    "disk_count": 24,
    "volumes": [
@@ -518,8 +518,8 @@
   {
    "id": "ds2",
    "model": "DS2411+",
-   "uptime": "22:24:25",
-   "temp": 36,
+   "uptime": "22:44:35",
+   "temp": 37,
    "disk_count": 24,
    "volumes": [
     {
@@ -529,7 +529,7 @@
      "tb": 29.8,
      "free_tb": 18.9,
      "scrub": "wait_for_another_operation",
-     "progress_percent": "47.18",
+     "progress_percent": "47.92",
      "progress_step": "raid_parity_checking",
      "device_type": "shr_with_2_disk_protect",
      "disk_failure_number": 0
@@ -968,7 +968,7 @@
     },
     {
      "sev": "high",
-     "msg": "volume_2 REBUILD in progress at 47.18"
+     "msg": "volume_2 REBUILD in progress at 47.92"
     },
     {
      "sev": "critical",
@@ -999,8 +999,8 @@
   {
    "id": "ds3",
    "model": "DS2413+",
-   "uptime": "230:23:39",
-   "temp": 41,
+   "uptime": "230:43:49",
+   "temp": 37,
    "disk_count": 24,
    "volumes": [
     {
@@ -1590,9 +1590,9 @@
   {
    "id": "ds4",
    "model": "DS2413+",
-   "uptime": "237:57:27",
+   "uptime": "238:17:37",
    "temp": 41,
-   "disk_count": 24,
+   "disk_count": 23,
    "volumes": [
     {
      "id": "volume_1",
@@ -1972,15 +1972,6 @@
    ],
    "disks": [
     {
-     "id": "sda",
-     "slot": 1,
-     "status": "not_use",
-     "smart": "normal",
-     "size_tb": 3.0,
-     "used_by": "",
-     "temp": null
-    },
-    {
      "id": "sdb",
      "slot": 2,
      "status": "normal",
@@ -2201,73 +2192,11 @@
     {
      "sev": "critical",
      "msg": "/dev/md2 has 11/12 members (pool reuse_1)"
-    },
-    {
-     "sev": "medium",
-     "msg": "sda (slot 1) not_use, SMART normal, REDACTED"
     }
    ]
   }
  ],
  "history": [
-  {
-   "at": "2026-11-07T17:35:07-0500",
-   "prov": "measured",
-   "boxes": [
-    {
-     "id": "ds1",
-     "volumes": [
-      {
-       "id": "volume_1",
-       "progress_percent": "-1"
-      },
-      {
-       "id": "volume_2",
-       "progress_percent": "-1"
-      }
-     ]
-    },
-    {
-     "id": "ds2",
-     "volumes": [
-      {
-       "id": "volume_2",
-       "progress_percent": "-1"
-      },
-      {
-       "id": "volume_1",
-       "progress_percent": "-1"
-      }
-     ]
-    },
-    {
-     "id": "ds3",
-     "volumes": [
-      {
-       "id": "volume_2",
-       "progress_percent": "-1"
-      },
-      {
-       "id": "volume_1",
-       "progress_percent": "-1"
-      }
-     ]
-    },
-    {
-     "id": "ds4",
-     "volumes": [
-      {
-       "id": "volume_1",
-       "progress_percent": "-1"
-      },
-      {
-       "id": "volume_2",
-       "progress_percent": "-1"
-      }
-     ]
-    }
-   ]
-  },
   {
    "at": "2026-11-07T17:55:11-0500",
    "prov": "measured",
@@ -13775,6 +13704,64 @@
       {
        "id": "volume_2",
        "progress_percent": "47.18"
+      },
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds3",
+     "volumes": [
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds4",
+     "volumes": [
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": "2026-11-10T13:41:46-0500",
+   "prov": "measured",
+   "boxes": [
+    {
+     "id": "ds1",
+     "volumes": [
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds2",
+     "volumes": [
+      {
+       "id": "volume_2",
+       "progress_percent": "47.92"
       },
       {
        "id": "volume_1",
