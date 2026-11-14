@@ -1,6 +1,6 @@
 {
-  "rendered_at": "2026-11-14 14:18",
-  "payload_taken": "2026-11-14 14:18",
+  "rendered_at": "2026-11-14 14:39",
+  "payload_taken": "2026-11-14 14:39",
   "boxes_count": 4,
   "total_raw_tb": 623.0,
   "total_spindles": 96,
@@ -11,18 +11,18 @@
     {
       "box": "ds2",
       "volume": "volume_2",
-      "percent": 78.36,
-      "live_rate_per_hour": 0.06,
+      "percent": 78.38,
+      "live_rate_per_hour": 0.0571,
       "long_rate_per_hour": 0.0736,
-      "eta_text": "361h left"
+      "eta_text": "378h left"
     },
     {
       "box": "ds4",
       "volume": "volume_1",
-      "percent": 23.93,
-      "live_rate_per_hour": 3.27,
-      "long_rate_per_hour": 3.2311,
-      "eta_text": "23h left"
+      "percent": 25.01,
+      "live_rate_per_hour": 3.1,
+      "long_rate_per_hour": 3.2245,
+      "eta_text": "24h left"
     }
   ]
 }
