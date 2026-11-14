@@ -1,9 +1,9 @@
 {
-  "rendered_at": "2026-11-13 18:50",
-  "payload_taken": "2026-11-13 18:50",
+  "rendered_at": "2026-11-13 19:11",
+  "payload_taken": "2026-11-13 19:11",
   "boxes_count": 4,
-  "total_raw_tb": 623.0,
-  "total_spindles": 96,
+  "total_raw_tb": 620.0,
+  "total_spindles": 95,
   "active_task_count": 1,
   "degraded_volume_count": 2,
   "critical_finding_count": 5,
@@ -11,10 +11,10 @@
     {
       "box": "ds2",
       "volume": "volume_2",
-      "percent": 77.02,
-      "live_rate_per_hour": 0.06,
-      "long_rate_per_hour": 0.4162,
-      "eta_text": "383h left"
+      "percent": 77.05,
+      "live_rate_per_hour": 0.0732,
+      "long_rate_per_hour": 0.407,
+      "eta_text": "314h left"
     }
   ]
 }
