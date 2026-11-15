@@ -1,12 +1,12 @@
 {
  "schema": "ds-public/1",
- "taken": "2026-11-14T18:59:48-0500",
- "elapsed_s": 59.9,
+ "taken": "2026-11-14T19:21:45-0500",
+ "elapsed_s": 174.8,
  "boxes": [
   {
    "id": "ds1",
    "model": "DS2413+",
-   "uptime": "332:1:50",
+   "uptime": "332:21:52",
    "temp": 33,
    "disk_count": 24,
    "volumes": [
@@ -518,8 +518,8 @@
   {
    "id": "ds2",
    "model": "DS2411+",
-   "uptime": "124:2:13",
-   "temp": 37,
+   "uptime": "124:22:15",
+   "temp": 36,
    "disk_count": 24,
    "volumes": [
     {
@@ -529,7 +529,7 @@
      "tb": 29.8,
      "free_tb": 18.9,
      "scrub": "wait_for_another_operation",
-     "progress_percent": "78.63",
+     "progress_percent": "78.65",
      "progress_step": "raid_parity_checking",
      "device_type": "shr_with_2_disk_protect",
      "disk_failure_number": 0
@@ -968,7 +968,7 @@
     },
     {
      "sev": "high",
-     "msg": "volume_2 REBUILD in progress at 78.63"
+     "msg": "volume_2 REBUILD in progress at 78.65"
     },
     {
      "sev": "critical",
@@ -999,8 +999,8 @@
   {
    "id": "ds3",
    "model": "DS2413+",
-   "uptime": "332:1:33",
-   "temp": 37,
+   "uptime": "332:21:35",
+   "temp": 40,
    "disk_count": 24,
    "volumes": [
     {
@@ -1590,7 +1590,7 @@
   {
    "id": "ds4",
    "model": "DS2413+",
-   "uptime": "339:35:20",
+   "uptime": "339:55:22",
    "temp": 43,
    "disk_count": 24,
    "volumes": [
@@ -1601,7 +1601,7 @@
      "tb": 45.2,
      "free_tb": 9.1,
      "scrub": "wait_for_another_operation",
-     "progress_percent": "39.13",
+     "progress_percent": "40.21",
      "progress_step": "raid_parity_checking",
      "device_type": "shr_with_2_disk_protect",
      "disk_failure_number": 0
@@ -2209,7 +2209,7 @@
    "findings": [
     {
      "sev": "high",
-     "msg": "volume_1 REBUILD in progress at 39.13"
+     "msg": "volume_1 REBUILD in progress at 40.21"
     },
     {
      "sev": "critical",
@@ -2223,64 +2223,6 @@
   }
  ],
  "history": [
-  {
-   "at": "2026-11-11T12:31:12-0500",
-   "prov": "measured",
-   "boxes": [
-    {
-     "id": "ds1",
-     "volumes": [
-      {
-       "id": "volume_1",
-       "progress_percent": "-1"
-      },
-      {
-       "id": "volume_2",
-       "progress_percent": "-1"
-      }
-     ]
-    },
-    {
-     "id": "ds2",
-     "volumes": [
-      {
-       "id": "volume_2",
-       "progress_percent": "72.98"
-      },
-      {
-       "id": "volume_1",
-       "progress_percent": "-1"
-      }
-     ]
-    },
-    {
-     "id": "ds3",
-     "volumes": [
-      {
-       "id": "volume_2",
-       "progress_percent": "-1"
-      },
-      {
-       "id": "volume_1",
-       "progress_percent": "-1"
-      }
-     ]
-    },
-    {
-     "id": "ds4",
-     "volumes": [
-      {
-       "id": "volume_1",
-       "progress_percent": "-1"
-      },
-      {
-       "id": "volume_2",
-       "progress_percent": "-1"
-      }
-     ]
-    }
-   ]
-  },
   {
    "at": "2026-11-11T12:51:19-0500",
    "prov": "measured",
@@ -13814,6 +13756,64 @@
       {
        "id": "volume_1",
        "progress_percent": "39.13"
+      },
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": "2026-11-14T19:21:45-0500",
+   "prov": "measured",
+   "boxes": [
+    {
+     "id": "ds1",
+     "volumes": [
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds2",
+     "volumes": [
+      {
+       "id": "volume_2",
+       "progress_percent": "78.65"
+      },
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds3",
+     "volumes": [
+      {
+       "id": "volume_2",
+       "progress_percent": "-1"
+      },
+      {
+       "id": "volume_1",
+       "progress_percent": "-1"
+      }
+     ]
+    },
+    {
+     "id": "ds4",
+     "volumes": [
+      {
+       "id": "volume_1",
+       "progress_percent": "40.21"
       },
       {
        "id": "volume_2",
