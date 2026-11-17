@@ -1,6 +1,6 @@
 {
-  "rendered_at": "2026-11-17 07:53",
-  "payload_taken": "2026-11-17 07:53",
+  "rendered_at": "2026-11-17 08:14",
+  "payload_taken": "2026-11-17 08:14",
   "boxes_count": 4,
   "total_raw_tb": 623.0,
   "total_spindles": 96,
@@ -11,10 +11,10 @@
     {
       "box": "ds2",
       "volume": "volume_2",
-      "percent": 82.28,
-      "live_rate_per_hour": 0.0615,
+      "percent": 82.3,
+      "live_rate_per_hour": 0.0585,
       "long_rate_per_hour": 0.0603,
-      "eta_text": "288h left"
+      "eta_text": "302h left"
     }
   ]
 }
