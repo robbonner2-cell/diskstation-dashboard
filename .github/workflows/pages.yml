@@ -6,6 +6,12 @@ name: Deploy dashboard to GitHub Pages
 #
 # A custom Actions workflow is not subject to the legacy 10-builds-per-hour
 # Pages limit, so a 20-minute publication cadence is fine.
+#
+# The deploy step retries with pauses between attempts.  GitHub's artifact
+# metadata API intermittently lags behind the upload, and deploy-pages then
+# reports that no "github-pages" artifact exists for the run even though
+# the upload succeeded seconds earlier (seen repeatedly on 2026-11-25 and
+# 2026-11-26).  The retries ride out that lag instead of failing the run.
 
 on:
   push:
@@ -26,11 +32,11 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: https://robbonner2-cell.github.io/diskstation-dashboard/
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Configure GitHub Pages
         id: pages
@@ -41,6 +47,25 @@ jobs:
         with:
           path: site
 
-      - name: Deploy artifact
-        id: deployment
+      - name: Deploy artifact (attempt 1)
+        id: deploy-1
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+
+      - name: Wait for artifact metadata (before attempt 2)
+        if: steps.deploy-1.outcome == 'failure'
+        run: sleep 30
+
+      - name: Deploy artifact (attempt 2)
+        id: deploy-2
+        if: steps.deploy-1.outcome == 'failure'
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+
+      - name: Wait for artifact metadata (before attempt 3)
+        if: steps.deploy-1.outcome == 'failure' && steps.deploy-2.outcome == 'failure'
+        run: sleep 60
+
+      - name: Deploy artifact (attempt 3)
+        if: steps.deploy-1.outcome == 'failure' && steps.deploy-2.outcome == 'failure'
         uses: actions/deploy-pages@v4
